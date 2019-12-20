@@ -10,19 +10,19 @@
   <meta name="description" content="实际工作中，我们总会遇到类似如下的需求：某支付系统接入以下几种商户进行充值：易宝网易，快线网银，19pay手机支付，支付宝支付，骏网一卡通，由于每家充值系统的结算比例不一样，而且 同一家商户的不同充值方式也有所不同，具体系统情况比较复杂，像支付宝既有支付宝账号支付和支付宝网银支付等这些暂时不考虑，为了讲述策略模式这里简单描 述，假如分为四种，手机支付，网银支付，商户账号支付和点卡支付。因为没个支付">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中避免if-else-if：策略模式">
-<meta property="og:url" content="http://yoursite.com/2019/06/27/ava%E4%B8%AD%E9%81%BF%E5%85%8Dif-else-if%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:url" content="https://ijzh.github.io/2019/06/27/ava%E4%B8%AD%E9%81%BF%E5%85%8Dif-else-if%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="实际工作中，我们总会遇到类似如下的需求：某支付系统接入以下几种商户进行充值：易宝网易，快线网银，19pay手机支付，支付宝支付，骏网一卡通，由于每家充值系统的结算比例不一样，而且 同一家商户的不同充值方式也有所不同，具体系统情况比较复杂，像支付宝既有支付宝账号支付和支付宝网银支付等这些暂时不考虑，为了讲述策略模式这里简单描 述，假如分为四种，手机支付，网银支付，商户账号支付和点卡支付。因为没个支付">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/images/pasted-14.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-15.png">
+<meta property="og:image" content="https://ijzh.github.io/images/pasted-14.png">
+<meta property="og:image" content="https://ijzh.github.io/images/pasted-15.png">
 <meta property="article:published_time" content="2019-06-27T01:34:00.000Z">
 <meta property="article:modified_time" content="2019-12-20T07:15:34.655Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JAVA">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-14.png">
+<meta name="twitter:image" content="https://ijzh.github.io/images/pasted-14.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,7 +65,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ijzh.github.io"></form>
       </div>
     </div>
   </div>
@@ -137,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/27/ava%E4%B8%AD%E9%81%BF%E5%85%8Dif-else-if%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" data-id="ck4dwcvy7005s1gvihxfeauky" class="article-share-link">Share</a>
+      <a data-url="https://ijzh.github.io/2019/06/27/ava%E4%B8%AD%E9%81%BF%E5%85%8Dif-else-if%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" data-id="ck4dyi3f3005pqwvi7tzxch71" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
