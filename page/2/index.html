@@ -1,750 +1,470 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
   
-
+    <link rel="shortcut icon" href="/css/images/logo.png">
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://ijzh.github.io/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+  <title>
+    
+      Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
   
 <link rel="stylesheet" href="/css/style.css">
 
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
 <meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
       
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+    <div class="menu-mask">
+      <ul class="menu-list">
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ijzh.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Linux-后台启动jar" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/20/Linux-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8jar/" class="article-date">
-  <time datetime="2019-09-20T01:14:00.000Z" itemprop="datePublished">2019-09-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/20/Linux-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8jar/">Linux 后台启动jar</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Linux 后台启动jar 并将控制台日志打印到指定文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar ruoyi-eureka-1.0.1-SNAPSHOT.jar&gt;out.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/09/20/Linux-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8jar/" data-id="ck4dyi3d50017qwvi8rzs1kv8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mysql8-0远程访问授权" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/19/mysql8-0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%8E%88%E6%9D%83/" class="article-date">
-  <time datetime="2019-09-19T09:57:00.000Z" itemprop="datePublished">2019-09-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/mysql8-0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%8E%88%E6%9D%83/">mysql8.0远程访问授权</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在安设置mysql8.0远程访问过程中遇到的问题：</p>
-<p>1、ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘. to ‘username’@’%’’ at line 1</p>
-<p>解决方案：</p>
-<p>1、新建远程访问用户：create user ‘username’@’%’ identified by ‘password’;</p>
-<p>2、给远程访问用户授权：GRANT ALL PRIVILEGES ON <em>.</em> TO ‘username’@’%’;</p>
-<p>3、刷新权限：FLUSH PRIVILEGES;</p>
-<p>2、ERROR 1410 (42000): You are not allowed to create a user with GRANT</p>
-<p>msyql8.0好像自己给自己授权不行了，新建一个账号吧，并给这个账号授权。</p>
-<p>最后还有一个问题，如果用Navicat连接的回报不支持caching_sha2_password验证方式的错误。</p>
-<p>将远程访问用户的验证方式改为： msyql_native_password </p>
-<p>执行：</p>
-<p>ALTER USER ‘username’@’%’ IDENTIFIED WITH mysql_native_password BY ‘password’;</p>
-<p>FLUSH PRIVILEGES;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/09/19/mysql8-0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%8E%88%E6%9D%83/" data-id="ck4dyi3dy0030qwvihs4nch5w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%88%E6%9D%83/" rel="tag">授权</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux-JAVA环境变量设置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/19/Linux-JAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/" class="article-date">
-  <time datetime="2019-09-19T08:51:00.000Z" itemprop="datePublished">2019-09-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>►<a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/work/">work</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/Linux-JAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/">Linux JAVA环境变量设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>下载好jdk文件:<code>/usr/local/jdk1.8</code></p>
-<p>修改/etc/profile文件 </p>
-<p>如果你的计算机仅仅作为开发使用时推荐使用这种方法，因为所有用户的shell都有权使用这些环境变量，可能会给系统带来安全性问题。<br>·用文本编辑器打开/etc/profile<br>·在profile文件末尾加入： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk1.8</span><br><span class="line">export PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH </span><br><span class="line">export CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;lib&#x2F;dt.jar:$JAVA_HOME&#x2F;lib&#x2F;tools.jar</span><br></pre></td></tr></table></figure>
-
-<p>记得使用 <code>source /etc/profile</code> 命令使得配置生效</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/09/19/Linux-JAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/" data-id="ck4dyi3dc001nqwvigcmj1mab" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-SwitchHosts—hosts管理利器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/16/SwitchHosts%E2%80%94hosts%E7%AE%A1%E7%90%86%E5%88%A9%E5%99%A8/" class="article-date">
-  <time datetime="2019-08-16T06:19:00.000Z" itemprop="datePublished">2019-08-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/SwitchHosts%E2%80%94hosts%E7%AE%A1%E7%90%86%E5%88%A9%E5%99%A8/">SwitchHosts—hosts管理利器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SwitchHosts是一个管理、快速切换Hosts小工具，开源软件，一键切换Hosts配置，非常实用，高效。<br>开发Web过程成，部署有多套环境，网址域名都相同，部署在不同的服务器上，有开发环境、测试环境、预发布环境、生产环境。经常要切换Hosts来访问，测试以及验证bug，如果纯手工修改这会花掉不少时间，而且这个过程毫无乐趣可言。</p>
-<p>SwitchHosts目前最新版本是：SwitchHosts! 3</p>
-<p>使用方法：<br>下载运行后：</p>
-<p><img src="/images/pasted-22.png" alt="upload successful"></p>
-<p>有在线方案和本地方案两种。</p>
-<p>本地方案直接在右边空白填写域名和ip</p>
-<p>在线方案 可以把hosts文件放在一个站点下，共享给大家，当有修改的时候，重新刷新一下，就能取到最新的hosts了，统一维护。</p>
-<p><img src="/images/pasted-23.png" alt="upload successful"><br>运用图标方便甄别自己在那个环境，不同的环境设置不同的图标，程序最小化的图标也会跟着变化。</p>
-<p><img src="/images/pasted-24.png" alt="upload successful"></p>
-<p>电脑右下角也可以方便的切换，双击可以到主界面。</p>
-<p><img src="/images/pasted-25.png" alt="upload successful"></p>
-<p>注意以管理员身份运行，不然会提示以下错误。</p>
-<p><img src="/images/pasted-26.png" alt="upload successful"></p>
-<p>主界面有一个公共的hosts标签页，你可以在这个里面把公用的hosts写进去，这样其他标签生效的时候会加载这个公用的。比如放google最新的host进去，这样切换到其他环境也不影响google的访问。</p>
-<p>这里提供一个google最新hosts更新网址：<a href="http://laod.cn/hosts/2016-google-hosts.html" target="_blank" rel="noopener">http://laod.cn/hosts/2016-google-hosts.html</a></p>
-<p>使用注意事项：<br>1、运行时要以管理员方式运行，不然会提示无修改权限。在SwitchHosts.exe右键—以管理员身份运行<br>2、如果是绿色单文件版，最好是放在一个文件夹里面再运行，因为会exe所在的目录下生成配置文件和其他文件夹。<br>3、如果双击运行后不能显示SwitchHost界面，但是任务管理器里面能看到SwitchHost的进程，一般是由于hosts文件字符集不统一，导致hosts文件出现乱码，不能被SwitchHost打开，这时候只要删除C:\windows\system32\drivers\etc\hosts 即可。</p>
-<p>4、如果使用了代理，修改 Hosts 也不会生效。因为浏览器会优先考虑代理工具的代理，建议调试的时候先关闭代理。</p>
-<p>5、修改了hosts不生效，一般需要重启浏览器，如果是google浏览器可以不用重启，可以借助chrome://net-internals/#dns  chrome://net-internals/#sockets  清掉keep-alive 和清浏览器 DNS 缓存。</p>
-<p>修改Hosts为何不生效，是DNS缓存？</p>
-<p>为什么修改hosts不立即生效？–浏览器DNS缓存机制分析</p>
-<p>关于软件：                                                                                  </p>
-<p>软件作者官网：<a href="http://oldj.net/article/switchhosts/" target="_blank" rel="noopener">http://oldj.net/article/switchhosts/</a></p>
-<p>Github地址：<a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="noopener">https://github.com/oldj/SwitchHosts</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/16/SwitchHosts%E2%80%94hosts%E7%AE%A1%E7%90%86%E5%88%A9%E5%99%A8/" data-id="ck4dyi3do0027qwvi267w2r8i" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hosts/" rel="tag">hosts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-如何给老婆解释什么是RPC" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/16/%E5%A6%82%E4%BD%95%E7%BB%99%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AFRPC/" class="article-date">
-  <time datetime="2019-08-16T01:40:00.000Z" itemprop="datePublished">2019-08-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/%E5%A6%82%E4%BD%95%E7%BB%99%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AFRPC/">如何给老婆解释什么是RPC</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个阳光明媚的早晨，老婆又在翻看我订阅的技术杂志。<br>“老公，什么是RPC呀，为什么你们程序员那么多黑话！”，老婆还是一如既往的好奇。<br>“RPC，就是Remote Procedure Call的简称呀，翻译成中文就是远程过程调用嘛”，我一边看着书，一边漫不经心的回答着。<br>“啥？你在说啥？谁不知道翻译成中文是什么意思？你个废柴，快给我滚去洗碗！”<br>“我去。。。”，我如梦初醒，我对面坐着的可不是一个程序员，为了不去洗碗，我瞬间调动起全部脑细胞，星辰大海在我脑中汇聚，灵感涌现……<br>“是这样，远程过程调用，自然是相对于本地过程调用来说的嘛。”<br>“嗯哼，那先给老娘讲讲，本地过程调用是啥子？”<br>“本地过程调用，就好比你现在在家里，你要想洗碗，那你直接把碗放进洗碗机，打开洗碗机开关就可以洗了。这就叫本地过程调用。”<br>“哎呦，我可不干，那啥是远程过程调用？”<br>“远程嘛，那就是你现在不在家，跟姐妹们浪去了，突然发现碗还没洗，打了个电话过来，叫我去洗碗，这就是远程过程调用啦”，多么通俗易懂的解释，我真是天才！<br>“哦！我明白了”，说着，老婆开始收拾包包。<br>“你这是干啥去哦”<br>“我？我要出门浪去呀，待会记得接收我的远程调用哦，哦不，咱们要专业点，应该说，待会记得接收我的RPC哦！”<br>……</p>
-<p>非程序员请就此止步，程序员请继续往前走……</p>
-<hr>
-<p>如何科学的解释RPC<br>说起RPC，就不能不提到分布式，这个促使RPC诞生的领域。<br>假设你有一个计算器接口，Calculator，以及它的实现类CalculatorImpl，那么在系统还是单体应用时，你要调用Calculator的add方法来执行一个加运算，直接new一个CalculatorImpl，然后调用add方法就行了，这其实就是非常普通的本地函数调用，因为在同一个地址空间，或者说在同一块内存，所以通过方法栈和参数栈就可以实现。</p>
-<p><img src="/images/pasted-19.png" alt="upload successful"></p>
-<p>现在，基于高性能和高可靠等因素的考虑，你决定将系统改造为分布式应用，将很多可以共享的功能都单独拎出来，比如上面说到的计算器，你单独把它放到一个服务里头，让别的服务去调用它。</p>
-<p><img src="/images/pasted-20.png" alt="upload successful"></p>
-<p>这下问题来了，服务A里头并没有CalculatorImpl这个类，那它要怎样调用服务B的CalculatorImpl的add方法呢？<br>有同学会说，可以模仿B/S架构的调用方式呀，在B服务暴露一个Restful接口，然后A服务通过调用这个Restful接口来间接调用CalculatorImpl的add方法。<br>很好，这已经很接近RPC了，不过如果是这样，那每次调用时，是不是都需要写一串发起http请求的代码呢？比如httpClient.sendRequest…之类的，能不能像本地调用一样，去发起远程调用，让使用者感知不到远程调用的过程呢，像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Reference</span><br><span class="line">private Calculator calculator;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">calculator.add(1,2);</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>这时候，有同学就会说，用代理模式呀！而且最好是结合Spring IoC一起使用，通过Spring注入calculator对象，注入时，如果扫描到对象加了@Reference注解，那么就给它生成一个代理对象，将这个代理对象放进容器中。而这个代理对象的内部，就是通过httpClient来实现RPC远程过程调用的。<br>可能上面这段描述比较抽象，不过这就是很多RPC框架要解决的问题和解决的思路，比如阿里的Dubbo。<br>总结一下，RPC要解决的两个问题：</p>
-<p>解决分布式系统中，服务之间的调用问题。<br>远程调用时，要能够像本地调用一样方便，让调用者感知不到远程调用的逻辑。</p>
-<p>如何实现一个RPC<br>实际情况下，RPC很少用到http协议来进行数据传输，毕竟我只是想传输一下数据而已，何必动用到一个文本传输的应用层协议呢，我为什么不直接使用二进制传输？比如直接用Java的Socket协议进行传输？<br>不管你用何种协议进行数据传输，一个完整的RPC过程，都可以用下面这张图来描述：</p>
-<p><img src="/images/pasted-21.png" alt="upload successful"></p>
-<p>以左边的Client端为例，Application就是rpc的调用方，Client Stub就是我们上面说到的代理对象，也就是那个看起来像是Calculator的实现类，其实内部是通过rpc方式来进行远程调用的代理对象，至于Client Run-time Library，则是实现远程调用的工具包，比如jdk的Socket，最后通过底层网络实现实现数据的传输。<br>这个过程中最重要的就是序列化和反序列化了，因为数据传输的数据包必须是二进制的，你直接丢一个Java对象过去，人家可不认识，你必须把Java对象序列化为二进制格式，传给Server端，Server端接收到之后，再反序列化为Java对象。<br>下一次我也将通过代码，给大家演示一下，如何实现一个简单的RPC。<br>RPC vs Restful<br>其实这两者并不是一个维度的概念，总得来说RPC涉及的维度更广。<br>如果硬要比较，那么可以从RPC风格的url和Restful风格的url上进行比较。<br>比如你提供一个查询订单的接口，用RPC风格，你可能会这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;queryOrder?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
-<p>用Restful风格呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;order?orderId&#x3D;123</span><br></pre></td></tr></table></figure>
-<p>RPC是面向过程，Restful是面向资源，并且使用了Http动词。从这个维度上看，Restful风格的url在表述的精简性、可读性上都要更好。<br>RPC vs RMI<br>严格来说这两者也不是一个维度的。<br>RMI是Java提供的一种访问远程对象的协议，是已经实现好了的，可以直接用了。<br>而RPC呢？人家只是一种编程模型，并没有规定你具体要怎样实现，你甚至都可以在你的RPC框架里面使用RMI来实现数据的传输，比如Dubbo：Dubbo - rmi协议<br>RPC没那么简单<br>要实现一个RPC不算难，难的是实现一个高性能高可靠的RPC框架。<br>比如，既然是分布式了，那么一个服务可能有多个实例，你在调用时，要如何获取这些实例的地址呢？<br>这时候就需要一个服务注册中心，比如在Dubbo里头，就可以使用Zookeeper作为注册中心，在调用时，从Zookeeper获取服务的实例列表，再从中选择一个进行调用。<br>那么选哪个调用好呢？这时候就需要负载均衡了，于是你又得考虑如何实现复杂均衡，比如Dubbo就提供了好几种负载均衡策略。<br>这还没完，总不能每次调用时都去注册中心查询实例列表吧，这样效率多低呀，于是又有了缓存，有了缓存，就要考虑缓存的更新问题，blablabla……<br>你以为就这样结束了，没呢，还有这些：</p>
-<p>客户端总不能每次调用完都干等着服务端返回数据吧，于是就要支持异步调用；<br>服务端的接口修改了，老的接口还有人在用，怎么办？总不能让他们都改了吧？这就需要版本控制了；<br>服务端总不能每次接到请求都马上启动一个线程去处理吧？于是就需要线程池；<br>服务端关闭时，还没处理完的请求怎么办？是直接结束呢，还是等全部请求处理完再关闭呢？<br>……</p>
-<p>如此种种，都是一个优秀的RPC框架需要考虑的问题。<br>当然，接下来我们还是先实现一个简单的RPC，再在上面一步步优化！<br>传送门： 如何实现一个简单的RPC<br>参考</p>
-<p>wikipedia - RPC<br>what-is-restful-rest-vs-rpc<br>difference-between-rpc-and-rmi.html<br>what-is-the-difference-between-java-rmi-and-rpc<br>Dubbo 使用文档<br>Dubbo 源码开发手册<br>一本很棒的分布式书籍：《大型网站系统与Java中间件实践》</p>
-<p>作者：柳树之<br>链接：<a href="https://www.jianshu.com/p/2accc2840a1b" target="_blank" rel="noopener">https://www.jianshu.com/p/2accc2840a1b</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/16/%E5%A6%82%E4%BD%95%E7%BB%99%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AFRPC/" data-id="ck4dyi3e9003rqwvid97tb75q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RPC/" rel="tag">RPC</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-iframe-自己调用父级函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/14/iframe-%E8%87%AA%E5%B7%B1%E8%B0%83%E7%94%A8%E7%88%B6%E7%BA%A7%E5%87%BD%E6%95%B0/" class="article-date">
-  <time datetime="2019-08-14T07:19:00.000Z" itemprop="datePublished">2019-08-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/14/iframe-%E8%87%AA%E5%B7%B1%E8%B0%83%E7%94%A8%E7%88%B6%E7%BA%A7%E5%87%BD%E6%95%B0/">iframe 子级调用父级函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>parent.函数名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onclick&#x3D;&quot;parent.abc();&quot; href&#x3D;&quot;#&quot; &gt;Call Me &lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/14/iframe-%E8%87%AA%E5%B7%B1%E8%B0%83%E7%94%A8%E7%88%B6%E7%BA%A7%E5%87%BD%E6%95%B0/" data-id="ck4dyi3ds002kqwvihf27cu68" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iframe/" rel="tag">iframe</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ajax和axios、fetch的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/12/ajax%E5%92%8Caxios%E3%80%81fetch%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2019-08-12T03:37:00.000Z" itemprop="datePublished">2019-08-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/12/ajax%E5%92%8Caxios%E3%80%81fetch%E7%9A%84%E5%8C%BA%E5%88%AB/">ajax和axios、fetch的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.jQuery ajax</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">   type: &#39;POST&#39;,</span><br><span class="line">   url: url,</span><br><span class="line">   data: data,</span><br><span class="line">   dataType: dataType,</span><br><span class="line">   success: function () &#123;&#125;,</span><br><span class="line">   error: function () &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>传统 Ajax 指的是 XMLHttpRequest（XHR）， 最早出现的发送后端请求技术，隶属于原始js中，核心使用XMLHttpRequest对象，多个请求之间如果有先后关系的话，就会出现回调地狱。</p>
-<p>JQuery ajax 是对原生XHR的封装，除此以外还增添了对JSONP的支持。经过多年的更新维护，真的已经是非常的方便了，优点无需多言；如果是硬要举出几个缺点，那可能只有：</p>
-<p>1.本身是针对MVC的编程,不符合现在前端MVVM的浪潮</p>
-<p>2.基于原生的XHR开发，XHR本身的架构不清晰。</p>
-<p>3.JQuery整个项目太大，单纯使用ajax却要引入整个JQuery非常的不合理（采取个性化打包的方案又不能享受CDN服务）</p>
-<p>4.不符合关注分离（Separation of Concerns）的原则</p>
-<p>5.配置和调用方式非常混乱，而且基于事件的异步模型不友好。</p>
-<p>PS:MVVM(Model-View-ViewModel), 源自于经典的 Model–View–Controller（MVC）模式。MVVM 的出现促进了 GUI 前端开发与后端业务逻辑的分离，极大地提高了前端开发效率。MVVM 的核心是 ViewModel 层，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。View 层展现的不是 Model 层的数据，而是 ViewModel 的数据，由 ViewModel 负责与 Model 层交互，这就完全解耦了 View 层和 Model 层，这个解耦是至关重要的，它是前后端分离方案实施的最重要一环。<br>如下图所示：</p>
-<p><img src="/images/pasted-18.png" alt="upload successful"></p>
-<p>2.axios</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    method: &#39;post&#39;,</span><br><span class="line">    url: &#39;&#x2F;user&#x2F;12345&#39;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        firstName: &#39;Fred&#39;,</span><br><span class="line">        lastName: &#39;Flintstone&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.then(function (response) &#123;</span><br><span class="line">    console.log(response);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function (error) &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Vue2.0之后，尤雨溪推荐大家用axios替换JQuery ajax，想必让axios进入了很多人的目光中。</p>
-<p>axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，本质上也是对原生XHR的封装，只不过它是Promise的实现版本，符合最新的ES规范，它本身具有以下特征：</p>
-<p>1.从浏览器中创建 XMLHttpRequest</p>
-<p>2.支持 Promise API</p>
-<p>3.客户端支持防止CSRF</p>
-<p>4.提供了一些并发请求的接口（重要，方便了很多的操作）</p>
-<p>5.从 node.js 创建 http 请求</p>
-<p>6.拦截请求和响应</p>
-<p>7.转换请求和响应数据</p>
-<p>8.取消请求</p>
-<p>9.自动转换JSON数据</p>
-<p>PS:防止CSRF:就是让你的每个请求都带一个从cookie中拿到的key, 根据浏览器同源策略，假冒的网站是拿不到你cookie中得key的，这样，后台就可以轻松辨别出这个请求是否是用户在假冒网站上的误导输入，从而采取正确的策略。</p>
-<p>3.fetch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  let response &#x3D; await fetch(url);</span><br><span class="line">  let data &#x3D; response.json();</span><br><span class="line">  console.log(data);</span><br><span class="line">&#125; catch(e) &#123;</span><br><span class="line">  console.log(&quot;Oops, error&quot;, e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>fetch号称是AJAX的替代品，是在ES6出现的，使用了ES6中的promise对象。Fetch是基于promise设计的。Fetch的代码结构比起ajax简单多了，参数有点像jQuery ajax。但是，一定记住fetch不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象。<br>fetch的优点：<br>1.符合关注分离，没有将输入、输出和用事件来跟踪的状态混杂在一个对象里<br>2.更好更方便的写法<br>坦白说，上面的理由对我来说完全没有什么说服力，因为不管是Jquery还是Axios都已经帮我们把xhr封装的足够好，使用起来也足够方便，为什么我们还要花费大力气去学习fetch？<br>我认为fetch的优势主要优势就是：</p>
-<p>1.语法简洁，更加语义化</p>
-<p>2.基于标准 Promise 实现，支持 async/await</p>
-<p>3.同构方便，使用 <a href="https://github.com/matthew-andrews/isomorphic-fetch" target="_blank" rel="noopener">isomorphic-fetch</a></p>
-<p>4.更加底层，提供的API丰富（request, response）</p>
-<p>5.脱离了XHR，是ES规范里新的实现方式</p>
-<p>最近在使用fetch的时候，也遇到了不少的问题：</p>
-<p>fetch是一个低层次的API，你可以把它考虑成原生的XHR，所以使用起来并不是那么舒服，需要进行封装。</p>
-<p>例如：</p>
-<p>1）fetch只对网络请求报错，对400，500都当做成功的请求，服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，fetch 才会被 reject。</p>
-<p>2）fetch默认不会带cookie，需要添加配置项： fetch(url, {credentials: ‘include’})</p>
-<p>3）fetch不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了流量的浪费</p>
-<p>4）fetch没有办法原生监测请求的进度，而XHR可以</p>
-<p>总结：axios既提供了并发的封装，也没有fetch的各种问题，而且体积也较小，当之无愧现在最应该选用的请求的方式。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/12/ajax%E5%92%8Caxios%E3%80%81fetch%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="ck4dyi3dr002fqwvibu21g4us" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux命令-移动文件-mv" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/07/Linux%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-mv/" class="article-date">
-  <time datetime="2019-08-07T10:20:00.000Z" itemprop="datePublished">2019-08-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/07/Linux%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-mv/">Linux命令 - 移动文件 mv</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 用户可以使用 mv 命令来移动文件或目录至另一个文件或目录， 还可以将目录或文件重命名。 如果将一个文件移动到一个已经存在的目标文件中，目标文件的内容将会被覆盖。mv 命令接收两个参数时，第一个参数表示源文件或目录，第二个参数表示目标文件或目录。 接收多个参数时，如果最后一个参数对应的是目录而且改目录存在，mv 会将各个参数指定的文件或目录移动到此目录中，如果目标文件存在，将会进行覆盖。</p>
-<p>命令格式： mv [选项]  [参数]</p>
-<p>选项：</p>
-<p>  -i   如果目标文件存在，将会询问用户是否覆盖。</p>
-<p>  -f   覆盖已有的目标文件时不给出任何提示。</p>
-<p>  -b   若需要覆盖文件，则覆盖前先进行备份。</p>
-<p>  -S   与 -b 参数一并使用可指定备份文件所要附加的字尾。</p>
-<p>  –help  显示帮助。</p>
-<p>  –version  显示版本信息。</p>
-<p>实例：</p>
-<pre><code>mv b.txt c.bak   将文件 b.txt 重命名为  c.bak</code></pre><p>　　mv -i 456.txt /home/hk/cpdir/copy/abc    将  456.txt 移动到 /home/hk/cpdir/copy/ 并取名为 abc 若已存在文件 abc则会询问是否覆盖。</p>
-<p>　　mv -f 456.txt /home/hk/cpdir/copy/abc    将  456.txt 移动到 /home/hk/cpdir/copy/ 并取名为 abc 若已存在文件 abc 覆盖时不会有任何提示。</p>
-<p>　  mv  -b 123.txt  345.txt   将 123.txt 重命名为 345.txt，时先备份 345.txt。</p>
-<p><img src="/images/pasted-17.png" alt="upload successful"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/07/Linux%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-mv/" data-id="ck4dyi3d8001aqwvi4bpe153z" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MVN命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/07/MVN%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2019-08-07T10:04:00.000Z" itemprop="datePublished">2019-08-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>►<a class="article-category-link" href="/categories/work/%E5%B7%A5%E4%BD%9C/">工作</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/07/MVN%E5%91%BD%E4%BB%A4/">MVN命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>打包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean install</span><br></pre></td></tr></table></figure>
-<p>不编译测试类，不执行测试类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dmaven.test.skip&#x3D;true</span><br></pre></td></tr></table></figure>
-<p>打包且不编译测试类，不执行测试类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean install -Dmaven.test.skip&#x3D;true</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/07/MVN%E5%91%BD%E4%BB%A4/" data-id="ck4dyi3da001hqwvi3bfx5i8r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvn/" rel="tag">mvn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-作为架构师，你必需要搞清楚的概念：POJO、PO、DTO、DAO、BO、VO" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/06/%E4%BD%9C%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%9C%80%E8%A6%81%E6%90%9E%E6%B8%85%E6%A5%9A%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9APOJO%E3%80%81PO%E3%80%81DTO%E3%80%81DAO%E3%80%81BO%E3%80%81VO/" class="article-date">
-  <time datetime="2019-08-06T02:06:00.000Z" itemprop="datePublished">2019-08-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/work/">work</a>►<a class="article-category-link" href="/categories/work/%E5%B7%A5%E4%BD%9C/">工作</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/06/%E4%BD%9C%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%9C%80%E8%A6%81%E6%90%9E%E6%B8%85%E6%A5%9A%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9APOJO%E3%80%81PO%E3%80%81DTO%E3%80%81DAO%E3%80%81BO%E3%80%81VO/">作为架构师，你必需要搞清楚的概念：POJO、PO、DTO、DAO、BO、VO</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>POJO、PO、DTO、DAO、BO、VO这些概念作为Java开发来说应该全部或者部分遇到过，作为架构师的你想必更是清楚这些概念在不同场景的应用。</p>
-<p>下面我逐一介绍一下，想必你会更深刻。</p>
-<p>POJO</p>
-<p>全称为：Plain Ordinary Java Object，即简单普通的java对象。一般用在数据层映射到数据库表的类，类的属性与表字段一一对应。</p>
-<p>PO</p>
-<p>全称为：Persistant Object，即持久化对象。可以理解为数据库中的一条数据即一个BO对象，也可以理解为POJO经过持久化后的对象。</p>
-<p>DTO</p>
-<p>全称为：Data Transfer Object，即数据传输对象。一般用于向数据层外围提供仅需的数据，如查询一个表有50个字段，界面或服务只需要用到其中的某些字段，DTO就包装出去的对象。可用于隐藏数据层字段定义，也可以提高系统性能，减少不必要字段的传输损耗。</p>
-<p>DAO</p>
-<p>全称为：Data Access Object，即数据访问对象。就是一般所说的DAO层，用于连接数据库与外层之间的桥梁，并且持久化数据层对象。</p>
-<p>BO</p>
-<p>全称为：Business Object，即业务对象。一般用在业务层，当业务比较复杂，用到比较多的业务对象时，可用BO类组合封装所有的对象一并传递。</p>
-<p>VO</p>
-<p>全称为：Value Object，有的也称为View Object，即值对象或页面对象。一般用于web层向view层封装并提供需要展现的数据。</p>
-<p>总结</p>
-<p>这些定义在实际使用设计中并不会全部用到，根据不同设计架构定义不同的类对象，形态大致如此，可根据自己项目进行调整。一般各层之间要尽量保持低耦合，不要相互依赖，如web尽量不要引用dao层或服务实现层中的类，在单应用中不会有问题，如果哪天做分布式部署，需要做重构，这些过度依赖将会是十分让人蛋疼的问题。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://ijzh.github.io/2019/08/06/%E4%BD%9C%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%9C%80%E8%A6%81%E6%90%9E%E6%B8%85%E6%A5%9A%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9APOJO%E3%80%81PO%E3%80%81DTO%E3%80%81DAO%E3%80%81BO%E3%80%81VO/" data-id="ck4dyi3f5005rqwvieahd5q0f" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse%E9%85%8D%E7%BD%AE/">eclipse配置</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/work/">work</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/work/%E5%B7%A5%E4%BD%9C/">工作</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/work/">work</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC/" rel="tag">RPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hosts/" rel="tag">hosts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iframe/" rel="tag">iframe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdbc/" rel="tag">jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvn/" rel="tag">mvn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%8C%85/" rel="tag">打包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%88%E6%9D%83/" rel="tag">授权</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E7%AD%9B%E9%80%89/" rel="tag">时间筛选</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/" rel="tag">时间转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%B9%E6%95%88/" rel="tag">特效</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 12.5px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JAVA/" style="font-size: 17.5px;">JAVA</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/RPC/" style="font-size: 10px;">RPC</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/jdbc/" style="font-size: 10px;">jdbc</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mvn/" style="font-size: 10px;">mvn</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oracle/" style="font-size: 15px;">oracle</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vscode/" style="font-size: 12.5px;">vscode</a> <a href="/tags/work/" style="font-size: 10px;">work</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 12.5px;">前端</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">基础</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 12.5px;">工具</a> <a href="/tags/%E6%89%93%E5%8C%85/" style="font-size: 10px;">打包</a> <a href="/tags/%E6%8E%88%E6%9D%83/" style="font-size: 10px;">授权</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 12.5px;">数据库</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 10px;">时间</a> <a href="/tags/%E6%97%B6%E9%97%B4%E7%AD%9B%E9%80%89/" style="font-size: 10px;">时间筛选</a> <a href="/tags/%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">时间转换</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 10px;">格式化</a> <a href="/tags/%E7%89%B9%E6%95%88/" style="font-size: 10px;">特效</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 10px;">环境变量</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">配置</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/10/17/%E9%82%A3%E4%BA%9B%E6%9C%89%E8%B6%A3%E7%9A%84CSS%E6%A0%B7%E5%BC%8F/">那些有趣的CSS样式</a>
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
           </li>
         
-          <li>
-            <a href="/2019/10/17/vscode-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8Eelint%E6%A0%A1%E9%AA%8C%E4%B8%8D%E9%80%9A%E8%BF%87/">vscode 格式化后elint校验不通过</a>
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
           </li>
         
-          <li>
-            <a href="/2019/10/17/VSCode-%E5%BC%80%E5%8F%91Vue%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/">VSCode 开发Vue必备插件</a>
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
           </li>
         
-          <li>
-            <a href="/2019/10/17/Css%E8%A7%A3%E5%86%B3%E8%A1%A8%E6%A0%BC%E8%B6%85%E5%87%BA%E9%83%A8%E5%88%86%E7%94%A8%E7%9C%81%E7%95%A5%E5%8F%B7%E6%98%BE%E7%A4%BA/">Css解决表格超出部分用省略号显示</a>
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
           </li>
         
-          <li>
-            <a href="/2019/10/11/CentOS7%E4%B8%8B%E7%9A%84crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">CentOS7下的crontab定时任务</a>
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
           </li>
         
       </ul>
     </div>
   </div>
+</header>
 
+    <main class="app-body">
   
-</aside>
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/20/Linux-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8jar/">Linux 后台启动jar</a>
+      </h2>
+      <p class="article-date">September 20, 2019</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          Linux 后台启动jar 并将控制台日志打印到指定文件
+1nohup java -jar ruoyi-eureka-1.0.1-SNAPSHOT.jar&gt;out.log 2&gt;&amp;1 &amp;
         
       </div>
-      <footer id="footer">
+      <a class="more" href="/2019/09/20/Linux-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8jar/">Read more</a>
+    </article>
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/19/mysql8-0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%8E%88%E6%9D%83/">mysql8.0远程访问授权</a>
+      </h2>
+      <p class="article-date">September 19, 2019</p>
+      
+        
+  <a href="/tags#mysql" >
+    <span class="tag-code">mysql</span>
+  </a>
+
+  <a href="/tags#授权" >
+    <span class="tag-code">授权</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          在安设置mysql8.0远程访问过程中遇到的问题：
+1、ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server versi ...
+        
+      </div>
+      <a class="more" href="/2019/09/19/mysql8-0%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%8E%88%E6%9D%83/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/19/Linux-JAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/">Linux JAVA环境变量设置</a>
+      </h2>
+      <p class="article-date">September 19, 2019</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+  <a href="/tags#JAVA" >
+    <span class="tag-code">JAVA</span>
+  </a>
+
+  <a href="/tags#环境变量" >
+    <span class="tag-code">环境变量</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          下载好jdk文件:/usr/local/jdk1.8
+修改/etc/profile文件 
+如果你的计算机仅仅作为开发使用时推荐使用这种方法，因为所有用户的shell都有权使用这些环境变量，可能会给系统带来安全性问题。·用文本编辑器打开/etc/profile·在profile文件末尾加入：  ...
+        
+      </div>
+      <a class="more" href="/2019/09/19/Linux-JAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/16/SwitchHosts%E2%80%94hosts%E7%AE%A1%E7%90%86%E5%88%A9%E5%99%A8/">SwitchHosts—hosts管理利器</a>
+      </h2>
+      <p class="article-date">August 16, 2019</p>
+      
+        
+  <a href="/tags#hosts" >
+    <span class="tag-code">hosts</span>
+  </a>
+
+  <a href="/tags#工具" >
+    <span class="tag-code">工具</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          SwitchHosts是一个管理、快速切换Hosts小工具，开源软件，一键切换Hosts配置，非常实用，高效。开发Web过程成，部署有多套环境，网址域名都相同，部署在不同的服务器上，有开发环境、测试环境、预发布环境、生产环境。经常要切换Hosts来访问，测试以及验证bug，如果纯手工修改这会 ...
+        
+      </div>
+      <a class="more" href="/2019/08/16/SwitchHosts%E2%80%94hosts%E7%AE%A1%E7%90%86%E5%88%A9%E5%99%A8/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/16/%E5%A6%82%E4%BD%95%E7%BB%99%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AFRPC/">如何给老婆解释什么是RPC</a>
+      </h2>
+      <p class="article-date">August 16, 2019</p>
+      
+        
+  <a href="/tags#RPC" >
+    <span class="tag-code">RPC</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          一个阳光明媚的早晨，老婆又在翻看我订阅的技术杂志。“老公，什么是RPC呀，为什么你们程序员那么多黑话！”，老婆还是一如既往的好奇。“RPC，就是Remote Procedure Call的简称呀，翻译成中文就是远程过程调用嘛”，我一边看着书，一边漫不经心的回答着。“啥？你在说啥？谁不知道翻译 ...
+        
+      </div>
+      <a class="more" href="/2019/08/16/%E5%A6%82%E4%BD%95%E7%BB%99%E8%80%81%E5%A9%86%E8%A7%A3%E9%87%8A%E4%BB%80%E4%B9%88%E6%98%AFRPC/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/14/iframe-%E8%87%AA%E5%B7%B1%E8%B0%83%E7%94%A8%E7%88%B6%E7%BA%A7%E5%87%BD%E6%95%B0/">iframe 子级调用父级函数</a>
+      </h2>
+      <p class="article-date">August 14, 2019</p>
+      
+        
+  <a href="/tags#html" >
+    <span class="tag-code">html</span>
+  </a>
+
+  <a href="/tags#iframe" >
+    <span class="tag-code">iframe</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          parent.函数名
+1&lt;a onclick&#x3D;&quot;parent.abc();&quot; href&#x3D;&quot;#&quot; &gt;Call Me &lt;&#x2F;a&gt;
+        
+      </div>
+      <a class="more" href="/2019/08/14/iframe-%E8%87%AA%E5%B7%B1%E8%B0%83%E7%94%A8%E7%88%B6%E7%BA%A7%E5%87%BD%E6%95%B0/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/12/ajax%E5%92%8Caxios%E3%80%81fetch%E7%9A%84%E5%8C%BA%E5%88%AB/">ajax和axios、fetch的区别</a>
+      </h2>
+      <p class="article-date">August 12, 2019</p>
+      
+        
+  <a href="/tags#前端" >
+    <span class="tag-code">前端</span>
+  </a>
+
+  <a href="/tags#JS" >
+    <span class="tag-code">JS</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1.jQuery ajax
+12345678$.ajax(&#123;   type: &#39;POST&#39;,   url: url,   data: data,   dataType: dataType,   success: function () &#123;&#125;,   ...
+        
+      </div>
+      <a class="more" href="/2019/08/12/ajax%E5%92%8Caxios%E3%80%81fetch%E7%9A%84%E5%8C%BA%E5%88%AB/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/07/Linux%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-mv/">Linux命令 - 移动文件 mv</a>
+      </h2>
+      <p class="article-date">August 7, 2019</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+           用户可以使用 mv 命令来移动文件或目录至另一个文件或目录， 还可以将目录或文件重命名。 如果将一个文件移动到一个已经存在的目标文件中，目标文件的内容将会被覆盖。mv 命令接收两个参数时，第一个参数表示源文件或目录，第二个参数表示目标文件或目录。 接收多个参数时，如果最后一个参数对应的是目 ...
+        
+      </div>
+      <a class="more" href="/2019/08/07/Linux%E5%91%BD%E4%BB%A4-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6-mv/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/07/MVN%E5%91%BD%E4%BB%A4/">MVN命令</a>
+      </h2>
+      <p class="article-date">August 7, 2019</p>
+      
+        
+  <a href="/tags#mvn" >
+    <span class="tag-code">mvn</span>
+  </a>
+
+  <a href="/tags#打包" >
+    <span class="tag-code">打包</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          打包
+1clean install
+不编译测试类，不执行测试类
+1-Dmaven.test.skip&#x3D;true
+打包且不编译测试类，不执行测试类
+1clean install -Dmaven.test.skip&#x3D;true
+        
+      </div>
+      <a class="more" href="/2019/08/07/MVN%E5%91%BD%E4%BB%A4/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/06/%E4%BD%9C%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%9C%80%E8%A6%81%E6%90%9E%E6%B8%85%E6%A5%9A%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9APOJO%E3%80%81PO%E3%80%81DTO%E3%80%81DAO%E3%80%81BO%E3%80%81VO/">作为架构师，你必需要搞清楚的概念：POJO、PO、DTO、DAO、BO、VO</a>
+      </h2>
+      <p class="article-date">August 6, 2019</p>
+      
+        
+  <a href="/tags#java" >
+    <span class="tag-code">java</span>
+  </a>
+
+  <a href="/tags#对象" >
+    <span class="tag-code">对象</span>
+  </a>
+
+  <a href="/tags#基础" >
+    <span class="tag-code">基础</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          POJO、PO、DTO、DAO、BO、VO这些概念作为Java开发来说应该全部或者部分遇到过，作为架构师的你想必更是清楚这些概念在不同场景的应用。
+下面我逐一介绍一下，想必你会更深刻。
+POJO
+全称为：Plain Ordinary Java Object，即简单普通的java对象。一般用在 ...
+        
+      </div>
+      <a class="more" href="/2019/08/06/%E4%BD%9C%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88%EF%BC%8C%E4%BD%A0%E5%BF%85%E9%9C%80%E8%A6%81%E6%90%9E%E6%B8%85%E6%A5%9A%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9APOJO%E3%80%81PO%E3%80%81DTO%E3%80%81DAO%E3%80%81BO%E3%80%81VO/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/3/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
 
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
 
 
 <script src="/js/script.js"></script>
 
-
-
-
-  </div>
-</body>
+  </body>
 </html>
