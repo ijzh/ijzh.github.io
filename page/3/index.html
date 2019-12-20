@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/29/java%E8%8E%B7%E5%8F%96%E5%BD%93%E5%A4%A9%E7%9A%8423-59%E6%97%B6%E9%97%B4/">java获取当天的23.59时间</a>
+      </h2>
+      <p class="article-date">July 29, 2019</p>
+      
+        
+  <a href="/tags#java" >
+    <span class="tag-code">java</span>
+  </a>
+
+  <a href="/tags#时间" >
+    <span class="tag-code">时间</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          12345Calendar calendar2 &#x3D; Calendar.getInstance();calendar2.set(calendar2.get(Calendar.YEAR), calendar2.get(Calendar.MONTH), calendar2.get(Cal ...
+        
+      </div>
+      <a class="more" href="/2019/07/29/java%E8%8E%B7%E5%8F%96%E5%BD%93%E5%A4%A9%E7%9A%8423-59%E6%97%B6%E9%97%B4/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/26/oracle%E7%99%BB%E5%BD%95%E6%97%B6shared-memory-realm-does-not-exist%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">oracle登录时shared memory realm does not exist的解决方法</a>
+      </h2>
+      <p class="article-date">July 26, 2019</p>
+      
+        
+  <a href="/tags#oracle" >
+    <span class="tag-code">oracle</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          解决办法：1、用CMD进入命令行2、sqlplus /nolog
+3、conn / as sysdba4、startup
+然后用sqlplus进入命令
+
+
+        
+      </div>
+      <a class="more" href="/2019/07/26/oracle%E7%99%BB%E5%BD%95%E6%97%B6shared-memory-realm-does-not-exist%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/22/linux%E4%B8%8B%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2tomcat%EF%BC%8C%E6%9D%80%E6%AD%BBtomcat%E8%BF%9B%E7%A8%8B/">linux下启动、停止tomcat，杀死tomcat进程</a>
+      </h2>
+      <p class="article-date">July 22, 2019</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+  <a href="/tags#tomcat" >
+    <span class="tag-code">tomcat</span>
+  </a>
+
+  <a href="/tags#进程" >
+    <span class="tag-code">进程</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1.打开终端
+1　　cd &#x2F;java&#x2F;tomcat
+
+2.执行
+123　　bin&#x2F;startup.sh #启动tomcat　　bin&#x2F;shutdown.sh #停止tomcat　　tail -f logs&#x2F;catalina.out #看tom ...
+        
+      </div>
+      <a class="more" href="/2019/07/22/linux%E4%B8%8B%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2tomcat%EF%BC%8C%E6%9D%80%E6%AD%BBtomcat%E8%BF%9B%E7%A8%8B/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/19/ORA-01034-ORACLE-not-available-ORA-27101/">ORA-01034: ORACLE not available ORA-27101</a>
+      </h2>
+      <p class="article-date">July 19, 2019</p>
+      
+        
+  <a href="/tags#oracle" >
+    <span class="tag-code">oracle</span>
+  </a>
+
+  <a href="/tags#数据库" >
+    <span class="tag-code">数据库</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          先看oracle的监听和oracle的服务是否都启动了。
+启动oracle监听：cmd命令行窗口下，输入lsnrctl start，回车即启动监听。
+查看oracle的sid叫什么，比如创建数据库的时候，实例名叫“orcl”，那么先手工设置一下oralce的sid，cmd命令窗口中，set  ...
+        
+      </div>
+      <a class="more" href="/2019/07/19/ORA-01034-ORACLE-not-available-ORA-27101/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/19/oracle%E6%9F%A5%E8%AF%A2%E6%97%B6%E9%97%B4/">oracle查询时间</a>
+      </h2>
+      <p class="article-date">July 19, 2019</p>
+      
+        
+  <a href="/tags#oracle" >
+    <span class="tag-code">oracle</span>
+  </a>
+
+  <a href="/tags#数据库" >
+    <span class="tag-code">数据库</span>
+  </a>
+
+  <a href="/tags#时间筛选" >
+    <span class="tag-code">时间筛选</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1234567select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’) as nowTime from dual; &#x2F;&#x2F;日期转化为字符串select to_char(sysdate,’yyyy’) as nowYear from du ...
+        
+      </div>
+      <a class="more" href="/2019/07/19/oracle%E6%9F%A5%E8%AF%A2%E6%97%B6%E9%97%B4/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/17/MYSQL-WARN-Establishing-SSL-connection-without-server-s-identity-verification-is-not-recommended/">MYSQL:WARN: Establishing SSL connection without server's identity verification is not recommended.</a>
+      </h2>
+      <p class="article-date">July 17, 2019</p>
+      
+        
+  <a href="/tags#mysql" >
+    <span class="tag-code">mysql</span>
+  </a>
+
+  <a href="/tags#JAVA" >
+    <span class="tag-code">JAVA</span>
+  </a>
+
+  <a href="/tags#jdbc" >
+    <span class="tag-code">jdbc</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          在JDBC连接Mysql数据库的过程中出现了如下的警告信息:
+1 WARN: Establishing SSL connection without server&#39;s identity verification is not recommended. According to MyS ...
+        
+      </div>
+      <a class="more" href="/2019/07/17/MYSQL-WARN-Establishing-SSL-connection-without-server-s-identity-verification-is-not-recommended/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/12/%E5%9C%A8Spring%E4%B8%AD%E4%B8%BAThread%E6%B3%A8%E5%85%A5-Resource%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/">在Spring中为Thread注入@Resource失效问题</a>
+      </h2>
+      <p class="article-date">July 12, 2019</p>
+      
+        
+  <a href="/tags#JAVA" >
+    <span class="tag-code">JAVA</span>
+  </a>
+
+  <a href="/tags#Spring" >
+    <span class="tag-code">Spring</span>
+  </a>
+
+  <a href="/tags#多线程" >
+    <span class="tag-code">多线程</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          在一个线程类中为一个service对象添加@Resource注解。
+12345public class CalculateThread extends Thread &#123;	@Resource	private MyService myService;	&#125;
+在controlle ...
+        
+      </div>
+      <a class="more" href="/2019/07/12/%E5%9C%A8Spring%E4%B8%AD%E4%B8%BAThread%E6%B3%A8%E5%85%A5-Resource%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/08/%E4%B8%AD%E5%8D%8E%E6%96%87%E6%98%8E%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">中华文明（转载）</a>
+      </h2>
+      <p class="article-date">July 8, 2019</p>
+      
+      <div class="article-summary">
+        
+          链接：http://blog.sina.com.cn/s/blog_700e07540101623i.html
+我们一般说中华文化五千年，其实它真的跨入成熟文明的门槛，是离现在4200年。
+现在是公元21世纪，那个是公元前21世纪，等于对折一下，一张纸对折一下，我们公元后21世纪，那是公元前 ...
+        
+      </div>
+      <a class="more" href="/2019/07/08/%E4%B8%AD%E5%8D%8E%E6%96%87%E6%98%8E%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/05/Linux-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">Linux 上传下载文件</a>
+      </h2>
+      <p class="article-date">July 5, 2019</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          rz 上传 -y 覆盖
+sz xxx.file 下载
+
+        
+      </div>
+      <a class="more" href="/2019/07/05/Linux-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/07/01/Eclipse-%E8%B0%83%E8%AF%95%E6%8C%89%E9%92%AE%E5%8F%98%E7%81%B0%E8%89%B2%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95/">Eclipse 调试按钮变灰色无法调试</a>
+      </h2>
+      <p class="article-date">July 1, 2019</p>
+      
+        
+  <a href="/tags#work" >
+    <span class="tag-code">work</span>
+  </a>
+
+  <a href="/tags#eclipse" >
+    <span class="tag-code">eclipse</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          今天出现debug模式进入后，debug的几个按钮置灰，F5,6,8,没有任何反应时，然后以为电脑卡了，傻傻的等着响应。
+解决方案：
+========
+退出 Eclipse.
+打开 Eclipse 目录下的 configuration 下的 org.eclipse.osgi, 清空这个目录。 ...
+        
+      </div>
+      <a class="more" href="/2019/07/01/Eclipse-%E8%B0%83%E8%AF%95%E6%8C%89%E9%92%AE%E5%8F%98%E7%81%B0%E8%89%B2%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/page/2/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/4/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

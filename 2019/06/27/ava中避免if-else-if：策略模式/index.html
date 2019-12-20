@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Java中避免if-else-if：策略模式 | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Java中避免if-else-if：策略模式</h2>
+  <p class="post-date">2019-06-27</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>实际工作中，我们总会遇到类似如下的需求：<br>某支付系统接入以下几种商户进行充值：易宝网易，快线网银，19pay手机支付，支付宝支付，骏网一卡通，由于每家充值系统的结算比例不一样，而且 同一家商户的不同充值方式也有所不同，具体系统情况比较复杂，像支付宝既有支付宝账号支付和支付宝网银支付等这些暂时不考虑，为了讲述策略模式这里简单描 述，假如分为四种，手机支付，网银支付，商户账号支付和点卡支付。因为没个支付结算比例不同，所以对手续费低的做一些优惠活动，尽可能让用户使用手续费低 的支付方式来充值，这样降低渠道费用，增加收入，具体优惠政策如下：</p>
+<p>网银充值，8.5折<br>商户充值，9折<br>手机充值，没有优惠<br>点卡充值，收取1%的渠道费</p>
+<p>作为一个新手的代码基本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public class Example &#123;</span><br><span class="line">    public Double calRecharge(Double charge ,RechargeTypeEnum type )&#123;</span><br><span class="line">    </span><br><span class="line">       if(type.equals(RechargeTypeEnum.E_BANK))&#123;</span><br><span class="line">           return charge*0.85;</span><br><span class="line">       &#125;else if(type.equals(RechargeTypeEnum.BUSI_ACCOUNTS))&#123;</span><br><span class="line">           return charge*0.90;</span><br><span class="line">       &#125;else if(type.equals(RechargeTypeEnum.MOBILE))&#123;</span><br><span class="line">           return charge;</span><br><span class="line">       &#125;else if(type.equals(RechargeTypeEnum.CARD_RECHARGE))&#123;</span><br><span class="line">           return charge+charge*0.01;</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">           return null;</span><br><span class="line">       &#125;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">public enum RechargeTypeEnum &#123;</span><br><span class="line"> </span><br><span class="line">    E_BANK(1, &quot;网银&quot;),</span><br><span class="line">   </span><br><span class="line">    BUSI_ACCOUNTS(2, &quot;商户账号&quot;),</span><br><span class="line">   </span><br><span class="line">    MOBILE(3,&quot;手机卡充值&quot;),</span><br><span class="line">   </span><br><span class="line">    CARD_RECHARGE(4,&quot;充值卡&quot;)</span><br><span class="line">    ;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    private int value;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    private String description;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    private RechargeTypeEnum(int value, String description) &#123;</span><br><span class="line">       this.value &#x3D; value;</span><br><span class="line">       this.description &#x3D; description;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    public int value() &#123;</span><br><span class="line">       return value;</span><br><span class="line">    &#125;</span><br><span class="line">    public String description() &#123;</span><br><span class="line">       return description;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line"> </span><br><span class="line">    public static RechargeTypeEnum valueOf(int value) &#123;</span><br><span class="line">        for(RechargeTypeEnum type : RechargeTypeEnum.values()) &#123;</span><br><span class="line">            if(type.value() &#x3D;&#x3D; value) &#123;</span><br><span class="line">                return type;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return  E_BANK;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码虽然实现了基本功能，但是四种计算方式都在一个方法内部，如果优惠模式又增加了几十种，代码会变成什么样？你是否愿意来维护和扩展这样的代码？此时有的同学或许会说，我用switch-case来实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Example &#123;</span><br><span class="line">    public Double calRecharge(Double charge ,RechargeTypeEnum type )&#123;</span><br><span class="line">      </span><br><span class="line">      switch(type)&#123;</span><br><span class="line">        case RechargeTypeEnum.E_BANK:</span><br><span class="line">            return charge*0.85;</span><br><span class="line">        case RechargeTypeEnum.BUSI_ACCOUNTS:</span><br><span class="line">            return charge*0.90;</span><br><span class="line">        case RechargeTypeEnum.MOBILE:</span><br><span class="line">            return charge;  </span><br><span class="line">        case RechargeTypeEnum.CARD_RECHARGE:</span><br><span class="line">            retrun charge+charge*0.01;</span><br><span class="line">        default：</span><br><span class="line">        return null;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码在简洁性确实要比if-else简洁一些，但实际上是换汤不换药，并没有从本质上解决问题。<br>我们使用if-else事实上也是为了重用，但这只是面向过程的重用，程序员只看到代码重用，因为他看到if-else几种情况下大部分代码都是重复的，只有个别不同，因此使用if-else可以避免重复代码，并且认为这是模板Template模式。我们会从代码运行顺序来看待代码，这种思维类似水管或者串行电路，水沿着水管流动（代码运行次序），当遇到几个分管（子管），就分到这几个分管子在流动，这里就相当于碰到代码的if-else处了。这样的坏处就是，一旦业务发生了变化将给我们维护工作带来极大的困难。<br>那么有没有更好的实现方式呢？当然有，我们可以通过工厂模式或者策略模式避免如上的面向过程的重用。而本文将要介绍的是 策略模式</p>
+<p>策略模式（Policy)<br>定义一系列的算法,把每一个算法封装起来,并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化。也称为政策模式(Policy)。（Definea family of algorithms,encapsulate each one, andmake them interchangeable. Strategy lets the algorithmvary independently from clients that use it.）</p>
+<p>UML图如下</p>
+<p><img src="/images/pasted-14.png" alt="upload successful"></p>
+<p>sss1.jpg</p>
+<p>由上图可看出策略模式由以下角色构成：</p>
+<p>抽象策略角色： 策略类，通常由一个接口或者抽象类实现。<br>具体策略角色：包装了相关的算法和行为。<br>环境角色：持有一个策略类的引用，最终给客户端调用。</p>
+<p>策略模式让算法独立于使用它的客户而独立变化。策略模式重点是封装不同的算法和行为，不同的场景下可以相互替换。策略模式是开闭原则的体现，开闭原则讲的是一个软件实体应该对扩展开放对修改关 闭。策略模式在新的策略增加时，不会影响其他类的修改，增加了扩展性，也就是对扩展是开放的；对于场景来说，只依赖于抽象，而不依赖于具体实现，所以对修改是关闭的。策略模式的认识可以借助《java与模式》一书中写到诸葛亮的锦囊妙计来学习，在不同的场景下赵云打开不同的锦囊，便化险为夷，锦囊便是抽象策略，具体的锦囊里面的计策便是具体的策略角色，场景就是赵云，变化的处境选择具体策略的条件。<br>Strategy模式有下面的一些优点：</p>
+<p>相关算法系列 Strategy类层次为Context定义了一系列的可供重用的算法或行为。 继承有助于析取出这些算法中的公共功能。<br>提供了可以替换继承关系的办法： 继承提供了另一种支持多种算法或行为的方法。你可以直接生成一个Context类的子类，从而给它以不同的行为。但这会将行为硬行编制到 Context中，而将算法的实现与Context的实现混合起来,从而使Context难以理解、难以维护和难以扩展，而且还不能动态地改变算法。最后你得到一堆相关的类 , 它们之间的唯一差别是它们所使用的算法或行为。 将算法封装在独立的Strategy类中使得你可以独立于其Context改变它，使它易于切换、易于理解、易于扩展。<br>消除了一些if else条件语句 ：Strategy模式提供了用条件语句选择所需的行为以外的另一种选择。当不同的行为堆砌在一个类中时 ,很难避免使用条件语句来选择合适的行为。将行为封装在一个个独立的Strategy类中消除了这些条件语句。含有许多条件语句的代码通常意味着需要使用Strategy模式。<br>实现的选择 Strategy模式可以提供相同行为的不同实现。客户可以根据不同时间 /空间权衡取舍要求从不同策略中进行选择。</p>
+<p>Strategy模式缺点:<br>1)客户端必须知道所有的策略类，并自行决定使用哪一个策略类:  本模式有一个潜在的缺点，就是一个客户要选择一个合适的Strategy就必须知道这些Strategy到底有何不同。此时可能不得不向客户暴露具体的实现问题。因此仅当这些不同行为变体与客户相关的行为时 , 才需要使用Strategy模式。<br>2 ) Strategy和Context之间的通信开销 ：无论各个ConcreteStrategy实现的算法是简单还是复杂, 它们都共享Strategy定义的接口。因此很可能某些 ConcreteStrategy不会都用到所有通过这个接口传递给它们的信息；简单的 ConcreteStrategy可能不使用其中的任何信息！这就意味着有时Context会创建和初始化一些永远不会用到的参数。如果存在这样问题 , 那么将需要在Strategy和Context之间更进行紧密的耦合。<br>3 )策略模式将造成产生很多策略类：可以通过使用享元模式在一定程度上减少对象的数量。 增加了对象的数目 Strategy增加了一个应用中的对象的数目。有时你可以将 Strategy实现为可供各Context共享的无状态的对象来减少这一开销。任何其余的状态都由 Context维护。Context在每一次对Strategy对象的请求中都将这个状态传递过去。共享的 Strategy不应在各次调用之间维护状态。<br>策略模式在实际工作中也很常用，在博客你还在用if-else吗有过很好的阐述，策略模式不仅是继承的代替方案，还能很好地解决if-else问题。下面结合本文之前的例子来说明一下如何使用策略模式。<br>策略模式下的UML图如下:</p>
+<p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p>创建抽象策略角色Strategy：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Strategy &#123;</span><br><span class="line">    public Double calRecharge(Double charge ,RechargeTypeEnum type );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据需求，分别实现Strategy即具体策略角色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class EBankStrategy implements Strategy&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Double calRecharge(Double charge, RechargeTypeEnum type) &#123;</span><br><span class="line">       return charge*0.85;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class BusiAcctStrategy implements Strategy&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Double calRecharge(Double charge, RechargeTypeEnum type) &#123;</span><br><span class="line">       return charge*0.90;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class MobileStrategy implements Strategy &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Double calRecharge(Double charge, RechargeTypeEnum type) &#123;</span><br><span class="line">       return charge;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class CardStrategy implements Strategy&#123;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public Double calRecharge(Double charge, RechargeTypeEnum type) &#123;</span><br><span class="line">       return charge+charge*0.01;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>创建环境角色Context:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Context &#123;</span><br><span class="line"> </span><br><span class="line">    private Strategy strategy;</span><br><span class="line">   </span><br><span class="line">    public Double calRecharge(Double charge, Integer type) &#123;</span><br><span class="line">       strategy &#x3D; StrategyFactory.getInstance().creator(type);</span><br><span class="line">       return strategy.calRecharge(charge, RechargeTypeEnum.valueOf(type));</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public Strategy getStrategy() &#123;</span><br><span class="line">       return strategy;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setStrategy(Strategy strategy) &#123;</span><br><span class="line">       this.strategy &#x3D; strategy;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>StrategyFactory工厂,负责Strategy实例的创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class StrategyFactory &#123;</span><br><span class="line"> </span><br><span class="line">    private static StrategyFactory factory &#x3D; new StrategyFactory();</span><br><span class="line">    private StrategyFactory()&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    private static Map strategyMap &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">    static&#123;</span><br><span class="line">       strategyMap.put(RechargeTypeEnum.E_BANK.value(), new EBankStrategy());</span><br><span class="line">       strategyMap.put(RechargeTypeEnum.BUSI_ACCOUNTS.value(), new BusiAcctStrategy());</span><br><span class="line">       strategyMap.put(RechargeTypeEnum.MOBILE.value(), new MobileStrategy());</span><br><span class="line">       strategyMap.put(RechargeTypeEnum.CARD_RECHARGE.value(), new CardStrategy());</span><br><span class="line">    &#125;</span><br><span class="line">    public Strategy creator(Integer type)&#123;</span><br><span class="line">       return strategyMap.get(type);</span><br><span class="line">    &#125;</span><br><span class="line">    public static StrategyFactory getInstance()&#123;</span><br><span class="line">       return factory;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>开始测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class Client &#123;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"> </span><br><span class="line">       Context context &#x3D; new Context();</span><br><span class="line">       &#x2F;&#x2F; 网银充值100 需要付多少</span><br><span class="line">       Double money &#x3D; context.calRecharge(100D,</span><br><span class="line">              RechargeTypeEnum.E_BANK.value());</span><br><span class="line">       System.out.println(money);</span><br><span class="line"> </span><br><span class="line">       &#x2F;&#x2F; 商户账户充值100 需要付多少</span><br><span class="line">       Double money2 &#x3D; context.calRecharge(100D,</span><br><span class="line">              RechargeTypeEnum.BUSI_ACCOUNTS.value());</span><br><span class="line">       System.out.println(money2);</span><br><span class="line"> </span><br><span class="line">       &#x2F;&#x2F; 手机充值100 需要付多少</span><br><span class="line">       Double money3 &#x3D; context.calRecharge(100D,</span><br><span class="line">              RechargeTypeEnum.MOBILE.value());</span><br><span class="line">       System.out.println(money3);</span><br><span class="line"> </span><br><span class="line">       &#x2F;&#x2F; 充值卡充值100 需要付多少</span><br><span class="line">       Double money4 &#x3D; context.calRecharge(100D,</span><br><span class="line">              RechargeTypeEnum.CARD_RECHARGE.value());</span><br><span class="line">       System.out.println(money4);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>85.0<br>90.0<br>100.0<br>101.0<br>从上面类图和代码可以看出，策略模式把具体的算法封装到了具体策略角色内部，增强了可扩展性，隐蔽了实现细节；它替代继承来实现，避免了if- else这种不易维护的条件语句。当然我们也可以看到，策略模式由于独立策略实现，使得系统内增加了很多策略类；对客户端来说必须知道兜友哪些具体策略， 而且需要知道选择具体策略的条件。<br>总结<br>凡事具有两面性，策略模式也不例外，下面简单列举一下策略模式的优缺点。<br>优点：</p>
+<p>相关算法系列 Strategy类层次为Context定义了一系列的可供重用的算法或行为。 继承有助于析取出这些算法中的公共功能。<br>提供了可以替换继承关系的办法： 继承提供了另一种支持多种算法或行为的方法。你可以直接生成一个Context类的子类，从而给它以不同的行为。但这会将行为硬行编制到 Context中，而将算法的实现与Context的实现混合起来,从而使Context难以理解、难以维护和难以扩展，而且还不能动态地改变算法。最后你得到一堆相关的类 , 它们之间的唯一差别是它们所使用的算法或行为。 将算法封装在独立的Strategy类中使得你可以独立于其Context改变它，使它易于切换、易于理解、易于扩展。<br>消除了一些if else条件语句 ：Strategy模式提供了用条件语句选择所需的行为以外的另一种选择。当不同的行为堆砌在一个类中时 ,很难避免使用条件语句来选择合适的行为。将行为封装在一个个独立的Strategy类中消除了这些条件语句。含有许多条件语句的代码通常意味着需要使用Strategy模式。<br>实现的选择 Strategy模式可以提供相同行为的不同实现。客户可以根据不同时间 /空间权衡取舍要求从不同策略中进行选择。</p>
+<p>缺点:</p>
+<p>客户端必须知道所有的策略类，并自行决定使用哪一个策略类:  本模式有一个潜在的缺点，就是一个客户要选择一个合适的Strategy就必须知道这些Strategy到底有何不同。此时可能不得不向客户暴露具体的实现问题。因此仅当这些不同行为变体与客户相关的行为时 , 才需要使用Strategy模式。<br>2 . Strategy和Context之间的通信开销 ：无论各个ConcreteStrategy实现的算法是简单还是复杂, 它们都共享Strategy定义的接口。因此很可能某些 ConcreteStrategy不会都用到所有通过这个接口传递给它们的信息；简单的 ConcreteStrategy可能不使用其中的任何信息！这就意味着有时Context会创建和初始化一些永远不会用到的参数。如果存在这样问题 , 那么将需要在Strategy和Context之间更进行紧密的耦合。<br>3 . 策略模式将造成产生很多策略类：可以通过使用享元模式在一定程度上减少对象的数量。 增加了对象的数目 Strategy增加了一个应用中的对象的数目。有时你可以将 Strategy实现为可供各Context共享的无状态的对象来减少这一开销。任何其余的状态都由 Context维护。Context在每一次对Strategy对象的请求中都将这个状态传递过去。共享的 Strategy不应在各次调用之间维护状态。</p>
+<p>最后，是否应该重构一下你的代码了？</p>
+<p>作者：JarvanMo<br>链接：<a href="https://www.jianshu.com/p/71feb016ac05" target="_blank" rel="noopener">https://www.jianshu.com/p/71feb016ac05</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#JAVA" >
+    <span class="tag-code">JAVA</span>
+  </a>
+
+  <a href="/tags#设计模式" >
+    <span class="tag-code">设计模式</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/06/25/%E3%80%90hexo%E3%80%91fs-SyncWriteStream-is-deprecated/">
+        <span class="nav-arrow">← </span>
+        
+          【hexo】fs.SyncWriteStream is deprecated
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/27/INPUT-%E8%83%8C%E6%99%AF%E8%89%B2%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%80%8F%E6%98%8E/">
+        
+          INPUT 背景色设置为透明  
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/06/27/ava中避免if-else-if：策略模式/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Java中避免if-else-if：策略模式",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      oracle查询时间 | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>oracle查询时间</h2>
+  <p class="post-date">2019-07-19</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’) as nowTime from dual; &#x2F;&#x2F;日期转化为字符串</span><br><span class="line">select to_char(sysdate,’yyyy’) as nowYear from dual; &#x2F;&#x2F;获取时间的年</span><br><span class="line">select to_char(sysdate,’mm’) as nowMonth from dual; &#x2F;&#x2F;获取时间的月</span><br><span class="line">select to_char(sysdate,’dd’) as nowDay from dual; &#x2F;&#x2F;获取时间的日</span><br><span class="line">select to_char(sysdate,’hh24′) as nowHour from dual; &#x2F;&#x2F;获取时间的时</span><br><span class="line">select to_char(sysdate,’mi’) as nowMinute from dual; &#x2F;&#x2F;获取时间的分</span><br><span class="line">select to_char(sysdate,’ss’) as nowSecond from dual; &#x2F;&#x2F;获取时间的秒</span><br></pre></td></tr></table></figure>
+<p>oracle 日期格式<br>to_date(“要转换的字符串”,”转换的格式”) 两个参数的格式必须匹配，否则会报错。</p>
+<p>即按照第二个参数的格式解释第一个参数。</p>
+<p>to_char(日期,”转换格式” ) 即把给定的日期按照“转换格式”转换。</p>
+<p>转换的格式：</p>
+<p>表示year的：y 表示年的最后一位 yy 表示年的最后2位 yyy 表示年的最后3位 yyyy 用4位数表示年</p>
+<p>表示month的：mm 用2位数字表示月；mon 用简写形式 比如11月或者nov ；month 用全称 比如11月或者november</p>
+<p>表示day的：dd 表示当月第几天；ddd表示当年第几天；dy 当周第几天 简写 比如星期五或者fri；day当周第几天 全写</p>
+<p>比如星期五或者friday。</p>
+<p>表示hour的：hh 2位数表示小时 12进制； hh24 2位数表示小时 24小时</p>
+<p>表示minute的：mi 2位数表示分钟</p>
+<p>表示second的：ss 2位数表示秒 60进制</p>
+<p>表示季度的：q 一位数 表示季度 （1-4）</p>
+<p>另外还有ww 用来表示当年第几周 w用来表示当月第几周。</p>
+<p>24小时制下的时间范围：00：00：00-23：59：59</p>
+<p>12小时制下的时间范围：1：00：00-12：59：59</p>
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select to_char(sysdate,’yy-mm-dd hh24:mi:ss’) from dual &#x2F;&#x2F;显示：08-11-07 13:22:42</span><br><span class="line"></span><br><span class="line">select to_date(‘2005-12-25,13:25:59′,’yyyy-mm-dd,hh24:mi:ss’) from dual &#x2F;&#x2F;显示：2005-12-25 13:25:59</span><br></pre></td></tr></table></figure>
+<p>而如果把上式写作：select to_date(‘2005-12-25,13:25:59′,’yyyy-mm-dd,hh:mi:ss’) from dual，则会报错，因为小时hh是12进制，13为非法输入，不能匹配。</p>
+<p>补充：</p>
+<p>当前时间减去7分钟的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate,sysdate – interval ‘7’ MINUTE from dual</span><br></pre></td></tr></table></figure>
+<p>当前时间减去7小时的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate – interval ‘7’ hour from dual</span><br></pre></td></tr></table></figure>
+<p>当前时间减去7天的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate – interval ’7’ day from dual</span><br></pre></td></tr></table></figure>
+<p>当前时间减去7月的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate,sysdate – interval ‘7’ month from dual</span><br></pre></td></tr></table></figure>
+<p>当前时间减去7年的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate,sysdate – interval ‘7’ year from dual</span><br></pre></td></tr></table></figure>
+<p>时间间隔乘以一个数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sysdate,sysdate – 8*interval ‘7’ hour from dual</span><br></pre></td></tr></table></figure>
+
+<p>Dual伪列</p>
+<p>含义解释：</p>
+<p>Dual 是 Oracle中的一个实际存在的表，任何用户均可读取，常用在没有目标表的select语句块中。</p>
+<p>比如，我要获得系统时间，则用“select sysdate from dual” 则返回系统当前的时间：2008-11-07 9:32:49，不同系统可能返回日期的格式不一样。”select user from dual”则返回当前连接的用户。如果是”select 1+2 from dual”，则返回结果：3</p>
+<p>TO_DATE格式(以时间:2007-11-02 13:45:25为例)</p>
+<p>Year:<br>yy two digits 两位年 显示值:07<br>yyy three digits 三位年 显示值:007<br>yyyy four digits 四位年 显示值:2007</p>
+<p>Month:<br>mm number 两位月 显示值:11<br>mon abbreviated 字符集表示 显示值:11月,若是英文版,显示nov<br>month spelled out 字符集表示 显示值:11月,若是英文版,显示november</p>
+<p>Day:<br>dd number 当月第几天 显示值:02<br>ddd number 当年第几天 显示值:02<br>dy abbreviated 当周第几天简写 显示值:星期五,若是英文版,显示fri<br>day spelled out 当周第几天全写 显示值:星期五,若是英文版,显示friday<br>ddspth spelled out, ordinal twelfth</p>
+<p>Hour:<br>hh two digits 12小时进制 显示值:01<br>hh24 two digits 24小时进制 显示值:13</p>
+<p>Minute:<br>mi two digits 60进制 显示值:45</p>
+<p>Second:<br>ss two digits 60进制 显示值:25</p>
+<p>其它<br>Q digit 季度 显示值:4<br>WW digit 当年第几周 显示值:44<br>W digit 当月第几周 显示值:1</p>
+<p>24小时格式下时间范围为： 0:00:00 – 23:59:59….<br>12小时格式下时间范围为： 1:00:00 – 12:59:59 ….</p>
+<ol>
+<li>日期和字符转换函数用法（to_date,to_char）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’) as nowTime from dual; &#x2F;&#x2F;日期转化为字符串</span><br><span class="line">select to_char(sysdate,’yyyy’) as nowYear from dual; &#x2F;&#x2F;获取时间的年</span><br><span class="line">select to_char(sysdate,’mm’) as nowMonth from dual; &#x2F;&#x2F;获取时间的月</span><br><span class="line">select to_char(sysdate,’dd’) as nowDay from dual; &#x2F;&#x2F;获取时间的日</span><br><span class="line">select to_char(sysdate,’hh24′) as nowHour from dual; &#x2F;&#x2F;获取时间的时</span><br><span class="line">select to_char(sysdate,’mi’) as nowMinute from dual; &#x2F;&#x2F;获取时间的分</span><br><span class="line">select to_char(sysdate,’ss’) as nowSecond from dual; &#x2F;&#x2F;获取时间的秒</span><br><span class="line"></span><br><span class="line">select to_date(‘2004-05-07 13:23:44′,’yyyy-mm-dd hh24:mi:ss’) from dual</span><br></pre></td></tr></table></figure>
+
+<p>2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select to_char( to_date(222,’J’),’Jsp’) from dual</span><br></pre></td></tr></table></figure>
+<p>显示Two Hundred Twenty-Two</p>
+<p>3.求某天是星期几</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select to_char(to_date(‘2002-08-26′,’yyyy-mm-dd’),’day’) from dual;</span><br></pre></td></tr></table></figure>
+<p>星期一<br>select to_char(to_date(‘2002-08-26′,’yyyy-mm-dd’),’day’,’NLS_DATE_LANGUAGE = American’) from dual;<br>monday<br>设置日期语言<br>ALTER SESSION SET NLS_DATE_LANGUAGE=’AMERICAN’;<br>也可以这样<br>TO_DATE (‘2002-08-26′, ‘YYYY-mm-dd’, ‘NLS_DATE_LANGUAGE = American’)</p>
+<ol start="4">
+<li>两个日期间的天数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select floor(sysdate – to_date(‘20020405′,’yyyymmdd’)) from dual;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>时间为null的用法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select id, active_date from table1</span><br><span class="line">UNION</span><br><span class="line">select 1, TO_DATE(null) from dual;</span><br></pre></td></tr></table></figure>
+注意要用TO_DATE(null)</li>
+</ol>
+<p>6.月份差<br>a_date between to_date(‘20011201′,’yyyymmdd’) and to_date(‘20011231′,’yyyymmdd’)<br>那么12月31号中午12点之后和12月1号的12点之前是不包含在这个范围之内的。<br>所以，当时间需要精确的时候，觉得to_char还是必要的</p>
+<ol start="7">
+<li>日期格式冲突问题<br>输入的格式要看你安装的ORACLE字符集的类型, 比如: US7ASCII, date格式的类型就是: ’01-Jan-01′<br>alter system set NLS_DATE_LANGUAGE = American<br>alter session set NLS_DATE_LANGUAGE = American<br>或者在to_date中写<br>select to_char(to_date(‘2002-08-26′,’yyyy-mm-dd’),’day’,’NLS_DATE_LANGUAGE = American’) from dual;<br>注意我这只是举了NLS_DATE_LANGUAGE，当然还有很多，<br>可查看<br>select * from nls_session_parameters<br>select * from V$NLS_PARAMETERS</li>
+</ol>
+<p>8.<br>select count(*)<br>from ( select rownum-1 rnum<br>from all_objects<br>where rownum &lt;= to_date(‘2002-02-28’,’yyyy-mm-dd’) - to_date(‘2002- 02-01’,’yyyy-mm-dd’)+1 ) where to_char( to_date(‘2002-02-01’,’yyyy-mm-dd’)+rnum-1, ‘D’ ) not in ( ‘1’, ‘7’ ) 查找2002-02-28至2002-02-01间除星期一和七的天数 在前后分别调用DBMS_UTILITY.GET_TIME, 让后将结果相减(得到的是1/100秒, 而不是毫秒). 9. 查找月份 select months_between(to_date(‘01-31-1999’,’MM-DD-YYYY’),to_date(‘12-31-1998’,’MM-DD-YYYY’)) “MONTHS” FROM DUAL; 1 select months_between(to_date(‘02-01-1999’,’MM-DD-YYYY’),to_date(‘12-31-1998’,’MM-DD-YYYY’)) “MONTHS” FROM DUAL; 1.03225806451613 10. Next_day的用法 Next_day(date, day) Monday-Sunday, for format code DAY Mon-Sun, for format code DY 1-7, for format code D 11 select to_char(sysdate,’hh:mi:ss’) TIME from all_objects 注意：第一条记录的TIME 与最后一行是一样的 可以建立一个函数来处理这个问题 create or replace function sys_date return date is begin return sysdate; end; select to_char(sys_date,’hh:mi:ss’) from all_objects; 12.获得小时数 extract()找出日期或间隔值的字段值 SELECT EXTRACT(HOUR FROM TIMESTAMP ‘2001-02-16 2:38:40’) from offer SQL&gt; select sysdate ,to_char(sysdate,’hh’) from dual;</p>
+<p>SYSDATE TO_CHAR(SYSDATE,’HH’)<br>——————– ———————<br>2003-10-13 19:35:21 07</p>
+<p>SQL&gt; select sysdate ,to_char(sysdate,’hh24′) from dual;</p>
+<p>SYSDATE TO_CHAR(SYSDATE,’HH24′)<br>——————– ———————–<br>2003-10-13 19:35:21 19</p>
+<p>13.年月日的处理<br>select older_date,<br>newer_date,<br>years,<br>months,<br>abs(<br>trunc(<br>newer_date-<br>add_months( older_date,years*12+months )<br>)<br>) days</p>
+<p>from ( select<br>trunc(months_between( newer_date, older_date )/12) YEARS,<br>mod(trunc(months_between( newer_date, older_date )),12 ) MONTHS,<br>newer_date,<br>older_date<br>from (<br>select hiredate older_date, add_months(hiredate,rownum)+rownum newer_date<br>from emp<br>)<br>)</p>
+<p>14.处理月份天数不定的办法<br>select to_char(add_months(last_day(sysdate) +1, -2), ‘yyyymmdd’),last_day(sysdate) from dual</p>
+<p>16.找出今年的天数<br>select add_months(trunc(sysdate,’year’), 12) – trunc(sysdate,’year’) from dual</p>
+<p>闰年的处理方法<br>to_char( last_day( to_date(’02’ | | :year,’mmyyyy’) ), ‘dd’ )<br>如果是28就不是闰年</p>
+<p>17.yyyy与rrrr的区别<br>‘YYYY99 TO_C<br>——- —-<br>yyyy 99 0099<br>rrrr 99 1999<br>yyyy 01 0001<br>rrrr 01 2001</p>
+<p>18.不同时区的处理<br>select to_char( NEW_TIME( sysdate, ‘GMT’,’EST’), ‘dd/mm/yyyy hh:mi:ss’) ,sysdate<br>from dual;</p>
+<p>19.5秒钟一个间隔</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Select TO_DATE(FLOOR(TO_CHAR(sysdate,’SSSSS’)&#x2F;300) * 300,’SSSSS’) ,TO_CHAR(sysdate,’SSSSS’)</span><br><span class="line">from dual</span><br><span class="line"></span><br><span class="line">2002-11-1 9:55:00 35786</span><br><span class="line">SSSSS表示5位秒数</span><br><span class="line"></span><br><span class="line">20.一年的第几天</span><br></pre></td></tr></table></figure>
+<p>select TO_CHAR(SYSDATE,’DDD’),sysdate from dual</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">310 2002-11-6 10:03:51</span><br><span class="line"></span><br><span class="line">21.计算小时,分,秒,毫秒</span><br></pre></td></tr></table></figure>
+<p>select<br>Days,<br>A,<br>TRUNC(A<em>24) Hours,<br>TRUNC(A</em>24<em>60 – 60</em>TRUNC(A<em>24)) Minutes,<br>TRUNC(A</em>24<em>60</em>60 – 60<em>TRUNC(A</em>24<em>60)) Seconds,<br>TRUNC(A</em>24<em>60</em>60<em>100 – 100</em>TRUNC(A<em>24</em>60*60)) mSeconds<br>from<br>(<br>select<br>trunc(sysdate) Days,<br>sysdate – trunc(sysdate) A<br>from dual<br>)</p>
+<p>select * from tabname<br>order by decode(mode,’FIFO’,1,-1)*to_char(rq,’yyyymmddhh24miss’);</p>
+<p>//</p>
+<p>floor((date2-date1) /365) 作为年<br>floor((date2-date1, 365) /30) 作为月<br>d(mod(date2-date1, 365), 30)作为日.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">23.next_day函数 返回下个星期的日期,day为1-7或星期日-星期六,1表示星期日</span><br><span class="line">next_day(sysdate,6)是从当前开始下一个星期五。后面的数字是从星期日开始算起。</span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line">日 一 二 三 四 五 六</span><br><span class="line"></span><br><span class="line">—————————————————————</span><br></pre></td></tr></table></figure>
+<p>select (sysdate-to_date(‘2003-12-03 12:55:45′,’yyyy-mm-dd hh24:mi:ss’))<em>24</em>60*60 from ddual</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">日期 返回的是天 然后 转换为ss</span><br><span class="line"></span><br><span class="line">24,round[舍入到最接近的日期](day:舍入到最接近的星期日)</span><br></pre></td></tr></table></figure>
+<p>select sysdate S1,<br>round(sysdate) S2 ,<br>round(sysdate,’year’) YEAR,<br>round(sysdate,’month’) MONTH ,<br>round(sysdate,’day’) DAY from dual</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">25,trunc[截断到最接近的日期,单位为天] ,返回的是日期类型</span><br></pre></td></tr></table></figure>
+<p>select sysdate S1,<br>trunc(sysdate) S2, //返回当前日期,无时分秒<br>trunc(sysdate,’year’) YEAR, //返回当前年的1月1日,无时分秒<br>trunc(sysdate,’month’) MONTH , //返回当前月的1日,无时分秒<br>trunc(sysdate,’day’) DAY //返回当前星期的星期天,无时分秒<br>from dual</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">26,返回日期列表中最晚日期</span><br></pre></td></tr></table></figure>
+<p>select greatest(’01-1月-04′,’04-1月-04′,’10-2月-04′) from dual</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">27.计算时间差</span><br><span class="line">注:oracle时间差是以天数为单位,所以换算成年月,日</span><br></pre></td></tr></table></figure>
+<p>select floor(to_number(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))/365) as spanYears from dual //时间差-年<br>select ceil(moths_between(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))) as spanMonths from dual //时间差-月<br>select floor(to_number(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))) as spanDays from dual //时间差-天<br>select floor(to_number(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))<em>24) as spanHours from dual //时间差-时<br>select floor(to_number(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))</em>24<em>60) as spanMinutes from dual //时间差-分<br>select floor(to_number(sysdate-to_date(‘2007-11-02 15:55:03′,’yyyy-mm-dd hh24:mi:ss’))</em>24<em>60</em>60) as spanSeconds from dual //时间差-秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">28.更新时间</span><br><span class="line">注:oracle时间加减是以天数为单位,设改变量为n,所以换算成年月,日</span><br></pre></td></tr></table></figure>
+<p>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),to_char(sysdate+n*365,’yyyy-mm-dd hh24:mi:ss’) as newTime from dual //改变时间-年<br>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),add_months(sysdate,n) as newTime from dual //改变时间-月<br>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),to_char(sysdate+n,’yyyy-mm-dd hh24:mi:ss’) as newTime from dual //改变时间-日<br>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),to_char(sysdate+n/24,’yyyy-mm-dd hh24:mi:ss’) as newTime from dual //改变时间-时<br>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),to_char(sysdate+n/24/60,’yyyy-mm-dd hh24:mi:ss’) as newTime from dual //改变时间-分<br>select to_char(sysdate,’yyyy-mm-dd hh24:mi:ss’),to_char(sysdate+n/24/60/60,’yyyy-mm-dd hh24:mi:ss’) as newTime from dual //改变时间-秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">29.查找月的第一天,最后一天</span><br></pre></td></tr></table></figure>
+<p>SELECT Trunc(Trunc(SYSDATE, ‘MONTH’) – 1, ‘MONTH’) First_Day_Last_Month,<br>Trunc(SYSDATE, ‘MONTH’) – 1 / 86400 Last_Day_Last_Month,<br>Trunc(SYSDATE, ‘MONTH’) First_Day_Cur_Month,<br>LAST_DAY(Trunc(SYSDATE, ‘MONTH’)) + 1 – 1 / 86400 Last_Day_Cur_Month<br>FROM dual;</p>
+<h2 id=""><a href="#" class="headerlink" title="```"></a>```</h2><p>作者：我在爱的国<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/magaiou/article/details/80322218" target="_blank" rel="noopener">https://blog.csdn.net/magaiou/article/details/80322218</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#oracle" >
+    <span class="tag-code">oracle</span>
+  </a>
+
+  <a href="/tags#数据库" >
+    <span class="tag-code">数据库</span>
+  </a>
+
+  <a href="/tags#时间筛选" >
+    <span class="tag-code">时间筛选</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/07/17/MYSQL-WARN-Establishing-SSL-connection-without-server-s-identity-verification-is-not-recommended/">
+        <span class="nav-arrow">← </span>
+        
+          MYSQL:WARN: Establishing SSL connection without server&#39;s identity verification is not recommended.
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/07/19/ORA-01034-ORACLE-not-available-ORA-27101/">
+        
+          ORA-01034: ORACLE not available ORA-27101
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-text">&#96;&#96;&#96;</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/07/19/oracle查询时间/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "oracle查询时间",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

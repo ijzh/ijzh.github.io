@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      linux下vim命令详解 | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>linux下vim命令详解</h2>
+  <p class="post-date">2019-06-15</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<p>:qx     开始记录宏，并将结果存入寄存器x<br>q     退出记录模式<br>@x     播放记录在x寄存器中的宏命令<br>稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模<br>式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。<br>同时编辑多个文件<br>在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。<br>标签命令</p>
+<p>:tabe fn     在一个新的标签页中编辑文件fn<br>gt     切换到下一个标签页<br>gT     切换到上一个标签页<br>:tabr     切换到第一个标签页<br>:tabl     切换到最后一个标签页<br>:tabm [N]     把当前tab移动到第N个tab之后<br>对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！<br>窗口命令<br>ctrl+w s     水平分割窗口<br>ctrl+w w     切换窗口<br>ctrl+w q     退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)<br>ctrl+w v     垂直分割窗口<br>其他<br>vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。</p>
+<p>:e file     把file加载到新的缓冲区中<br>:bn     跳转到下一个缓冲区<br>:bd     删除缓冲区(关闭文件)<br>:sp fn     分割窗口，并将fn加载到新的窗口中<br>退出编辑器</p>
+<p>:w     将缓冲区写入文件，即保存修改<br>:wq     保存修改并退出<br>:x     保存修改并退出<br>:q     退出，如果对缓冲区进行过修改，则会提示<br>:q!     强制退出，放弃修改<br>查找替换<br>/pattern     向后搜索字符串pattern<br>?pattern     向前搜索字符串pattern<br>n     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)<br>N     上一个匹配(同上)<br>:%s/old/new/g     搜索整个文件，将所有的old替换为new<br>:%s/old/new/gc     搜索整个文件，将所有的old替换为new，每次都要你确认是否替换<br>复制粘贴<br>dd     删除光标所在行<br>dw     删除一个字(word)<br>x     删除当前字符<br>X     删除前一个字符<br>D     删除到行末<br>yy     复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行<br>yw     复制一个字<br>y$     复制到行末<br>p     粘贴粘贴板的内容到当前行的下面<br>P     粘贴粘贴板的内容到当前行的上面<br>]p     有缩进的粘贴，vim会自动调节代码的缩进<br>“a     将内容放入/存入a寄存器，可以支持多粘贴板<br>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。<br>移动光标<br>在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。</p>
+<p>h,j,k,l     上，下，左，右<br>ctrl-f     上翻一页<br>ctrl-b     下翻一页<br>%     跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处<br>w     跳到下一个字首，按标点或单词分割<br>W     跳到下一个字首，长跳，如end-of-line被认为是一个字<br>e     跳到下一个字尾<br>E     跳到下一个字尾，长跳<br>b     跳到上一个字<br>B     跳到上一个字，长跳<br>0     跳至行首，不管有无缩进，就是跳到第0个字符<br>^     跳至行首的第一个字符<br>$     跳至行尾<br>gg     跳至文件的第一行<br>gd     跳至当前光标所在的变量的声明处<br>[N]G     跳到第N行，如0G，就等价于gg，100G就是第100行<br>fx     在当前行中找x字符，找到了就跳转至<br>;     重复上一个f命令，而不用重复的输入fx<br>tx     与fx类似，但是只是跳转到x的前一个字符处<br>Fx     跟fx的方向相反<br>),(     跳转到上/下一个语句</p>
+<ul>
+<li>查找光标所在处的单词，向下查找<h1 id="查找光标所在处的单词，向上查找"><a href="#查找光标所在处的单词，向上查找" class="headerlink" title="查找光标所在处的单词，向上查找"></a>查找光标所在处的单词，向上查找</h1>`.     跳转至上次编辑位置<br>在屏幕上移动</li>
+</ul>
+<p>H     移动光标到当前屏幕上最上边的一行<br>M     移动光标到当前屏幕上中间的一行<br>L     移动光标到当前屏幕上最下边的一行<br>书签<br>ma     把当前位置存成标签a<br>`a     跳转到标签a处<br>编辑<br>r     替换一个字符<br>J     将下一行和当前行连接为一行<br>cc     删除当前行并进入编辑模式<br>cw     删除当前字，并进入编辑模式<br>c$     擦除从当前位置至行末的内容，并进入编辑模式<br>s     删除当前字符并进入编辑模式<br>S     删除光标所在行并进入编辑模式<br>xp     交换当前字符和下一个字符<br>u     撤销<br>ctrl+r     重做<br>.     重复上一个编辑命令<br>~     切换大小写，当前字符<br>g~iw     切换当前字的大小写<br>gUiw     将当前字变成大写<br>guiw     将当前字变成小写</p>
+<figure class="highlight plain"><figcaption><span>将当前行右移一个单位</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;     将当前行左移一个单位(一个tab符)</span><br><span class="line">&#x3D;&#x3D;     自动缩进当前行</span><br></pre></td></tr></table></figure>
+
+<p>插入模式<br>i     从当前光标处进入插入模式<br>I     进入插入模式，并置光标于行首<br>a     追加模式，置光标于当前光标之后<br>A     追加模式，置光标于行末<br>o     在当前行之下新加一行，并进入插入模式<br>O     在当前行之上新加一行，并进入插入模式<br>Esc     退出插入模式<br>可视模式<br>标记文本<br>v     进入可视模式，单字符模式<br>V     进入可视模式，行模式<br>ctrl+v     进入可视模式，列模式，类似于UE的列模式<br>o     跳转光标到选中块的另一个端点<br>U     将选中块中的内容转成大写<br>O     跳转光标到块的另一个端点<br>aw     选中一个字<br>ab     选中括号中的所有内容，包括括号本身<br>aB     选中{}括号中的所有内容<br>ib     选中括号中的内容，不含括号<br>iB     选中{}中的内容，不含{}</p>
+<p>对标记进行动作<br>    &gt;          块右移<br>    &lt;     块左移<br>    y     复制块<br>    d     删除块<br>    ~     切换块中内容的大小写</p>
+<p>其实生活很美好，指示你想的太多了。没有，不会，有差距很正常，因为我不会</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/06/15/Linux%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF8080%E7%AB%AF%E5%8F%A3%E4%BE%9B%E5%A4%96%E7%95%8C%E8%AE%BF%E9%97%AE/">
+        <span class="nav-arrow">← </span>
+        
+          Linux中如何开启8080端口供外界访问
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/15/Win7%E7%B3%BB%E7%BB%9FPing%E7%AB%AF%E5%8F%A3%E5%8F%8A%E5%88%A9%E7%94%A8telnet%E5%91%BD%E4%BB%A4Ping-%E7%AB%AF%E5%8F%A3/">
+        
+          Win7系统Ping端口及利用telnet命令Ping 端口
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#查找光标所在处的单词，向上查找"><span class="toc-nav-text">查找光标所在处的单词，向上查找</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/06/15/linux下vim命令详解/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "linux下vim命令详解",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

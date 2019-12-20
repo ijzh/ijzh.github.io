@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/18/%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6Hexo/">轻量级博客框架Hexo</a>
+      </h2>
+      <p class="article-date">June 18, 2019</p>
+      
+      <div class="article-summary">
+        
+          对于习惯使用wordpress和emblog博客的人来说，由于配置稍微复杂且页面渲染速度较慢。
+博客搭建可行性方案：
+就我目前所了解到的，较多人采用的博客搭建方案有如下几种：
+1231、Git+Github+Markdown+jekyll （免费）2、Git+Github+Markdown+ ...
+        
+      </div>
+      <a class="more" href="/2019/06/18/%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6Hexo/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/18/%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8%EF%BC%9A%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">查看某个端口号是否被占用：三种方法</a>
+      </h2>
+      <p class="article-date">June 18, 2019</p>
+      
+      <div class="article-summary">
+        
+          1ps –ef |grep XXXX
+===========================================================
+123netstat -anp|grep XXXX&#x2F;&#x2F;a顺序 n数字 p端口
+================== ...
+        
+      </div>
+      <a class="more" href="/2019/06/18/%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8%EF%BC%9A%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/15/yarn%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">yarn的安装和使用</a>
+      </h2>
+      <p class="article-date">June 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          yarn的简介：Yarn是facebook发布的一款取代npm的包管理工具。
+yarn的特点：速度超快。Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快。超级安全。在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。超 ...
+        
+      </div>
+      <a class="more" href="/2019/06/15/yarn%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/15/Win7%E7%B3%BB%E7%BB%9FPing%E7%AB%AF%E5%8F%A3%E5%8F%8A%E5%88%A9%E7%94%A8telnet%E5%91%BD%E4%BB%A4Ping-%E7%AB%AF%E5%8F%A3/">Win7系统Ping端口及利用telnet命令Ping 端口</a>
+      </h2>
+      <p class="article-date">June 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          1、控制面板在程序界面下，选择“打开或关闭Windows功能”
+2、在打开的对话框中，找到“Telnet客户端”并勾选。最后点击“确定”，等待几分钟，系统将会为你开启Telnet客户端服务
+3、输入Telnet测试端口命令： “Telnet IP 端口 或者 Telnet 域名 端口” 并且 ...
+        
+      </div>
+      <a class="more" href="/2019/06/15/Win7%E7%B3%BB%E7%BB%9FPing%E7%AB%AF%E5%8F%A3%E5%8F%8A%E5%88%A9%E7%94%A8telnet%E5%91%BD%E4%BB%A4Ping-%E7%AB%AF%E5%8F%A3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/15/linux%E4%B8%8Bvim%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">linux下vim命令详解</a>
+      </h2>
+      <p class="article-date">June 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：
+:qx     开始记录宏，并将结果存入寄存器xq     退出记录模式@x     播放记录在x寄存器中的宏命令稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再 ...
+        
+      </div>
+      <a class="more" href="/2019/06/15/linux%E4%B8%8Bvim%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/15/Linux%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF8080%E7%AB%AF%E5%8F%A3%E4%BE%9B%E5%A4%96%E7%95%8C%E8%AE%BF%E9%97%AE/">Linux中如何开启8080端口供外界访问</a>
+      </h2>
+      <p class="article-date">June 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          举例：
+　开放10000端口的解决步骤如下：　
+　1、修改/etc/sysconfig/iptables文件，增加如下一行：　　
+ -A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 10000 -j ACCEPT
+ ...
+        
+      </div>
+      <a class="more" href="/2019/06/15/Linux%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AF8080%E7%AB%AF%E5%8F%A3%E4%BE%9B%E5%A4%96%E7%95%8C%E8%AE%BF%E9%97%AE/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/15/Java%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E5%92%8C%E5%8A%A0%E5%AF%86-Jocky/">Java代码混淆和加密--Jocky</a>
+      </h2>
+      <p class="article-date">June 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          1.1 什么是Jocky?
+我们知道，Java是一种跨平台的编程语言，其源码(.java文件)被编译成与平台无关的字节码(.class文件)，然后在运行期动态链接。 这样，编译后的类文件中将包含有符号表，从而使得Java程序很容易被反编译。相信每一个Java开发人员，都曾经用过诸如Jad之类 ...
+        
+      </div>
+      <a class="more" href="/2019/06/15/Java%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E5%92%8C%E5%8A%A0%E5%AF%86-Jocky/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/14/%E8%A7%A3%E5%86%B3linux%EF%BC%88Centos%EF%BC%89%E6%B2%A1%E6%9C%89-iptables-%E8%A7%A3%E5%86%B3/">解决linux（Centos）没有 iptables 解决</a>
+      </h2>
+      <p class="article-date">June 14, 2019</p>
+      
+      <div class="article-summary">
+        
+          安装iptable iptable-service
+先检查是否安装了iptables
+1service iptables status
+
+安装iptables
+1yum install -y iptables
+
+升级iptables
+1yum update iptables
+
+安装iptab ...
+        
+      </div>
+      <a class="more" href="/2019/06/14/%E8%A7%A3%E5%86%B3linux%EF%BC%88Centos%EF%BC%89%E6%B2%A1%E6%9C%89-iptables-%E8%A7%A3%E5%86%B3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/14/linux-%E4%B8%8B%E5%8D%87%E7%BA%A7nodejs/">linux 下升级nodejs</a>
+      </h2>
+      <p class="article-date">June 14, 2019</p>
+      
+      <div class="article-summary">
+        
+          方案1,使用npm安装n模块，使用n来升级nodejs首先要知道nodejs是安装在那个用户底下的，然后切换到相应用户，当然也可以sudo
+安装n模块：
+1npm install -g n
+升级node.js到最新稳定版
+1n stable
+升级node.js到最新版
+1n latest
+升 ...
+        
+      </div>
+      <a class="more" href="/2019/06/14/linux-%E4%B8%8B%E5%8D%87%E7%BA%A7nodejs/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/13/1/">为hexo添加hexo-admin组件</a>
+      </h2>
+      <p class="article-date">June 13, 2019</p>
+      
+      <div class="article-summary">
+        
+          准备工作
+已安装好hexo，选择好自己的主题(我选择的主题是melody)，并部署到GitHub等静态托管服务器上。
+插件介绍
+hexo-admin 是一个Hexo博客引擎的管理用户界面插件。这个插件最初是作为本地编辑器设计的，在本地运行hexo使用hexo-admin编写文章，然后通过he ...
+        
+      </div>
+      <a class="more" href="/2019/06/13/1/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/page/4/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/6/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      linux-linux top 命令各参数详解 | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>linux-linux top 命令各参数详解</h2>
+  <p class="post-date">2019-09-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>简介</p>
+<p>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况，类似于Windows的任务管理器。</p>
+<p>top显示系统当前的进程和其他状况,是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终止该程序为止. 比较准确的说,top命令提供了实时的对系统处理器的状态监视.它将显示系统中CPU最“敏感”的任务列表.该命令可以按CPU使用.内存使用和执行时间对任务进行排序；而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定. </p>
+<p>下面详细介绍它的使用方法。</p>
+<p>参数含义<br>top - 01:06:48 up  1:22,  1 user,  load average: 0.06, 0.60, 0.48<br>Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombie<br>Cpu(s):  0.3% us,  1.0% sy,  0.0% ni, 98.7% id,  0.0% wa,  0.0% hi,  0.0% si<br>Mem:    191272k total,   173656k used,    17616k free,    22052k buffers<br>Swap:   192772k total,        0k used,   192772k free,   123988k cached</p>
+<p>PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND<br>1379 root      16   0  7976 2456 1980 S  0.7  1.3   0:11.03 sshd<br>14704 root      16   0  2128  980  796 R  0.7  0.5   0:02.72 top<br>1 root      16   0  1992  632  544 S  0.0  0.3   0:00.90 init<br>2 root      34  19     0    0    0 S  0.0  0.0   0:00.00 ksoftirqd/0<br>3 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 watchdog/0</p>
+<p>统计信息区前五行是系统整体的统计信息。第一行是任务队列信息，同 uptime 命令的执行结果。其内容如下：</p>
+<p>01:06:48    当前时间<br>up 1:22    系统运行时间，格式为时:分<br>1 user    当前登录用户数<br>load average: 0.06, 0.60, 0.48    系统负载，即任务队列的平均长度。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值。</p>
+<p>第二、三行为进程和CPU的信息。当有多个CPU时，这些内容可能会超过两行。内容如下：<br>total 进程总数<br>running 正在运行的进程数<br>sleeping 睡眠的进程数<br>stopped 停止的进程数<br>zombie 僵尸进程数<br>Cpu(s):<br>0.3% us 用户空间占用CPU百分比<br>1.0% sy 内核空间占用CPU百分比<br>0.0% ni 用户进程空间内改变过优先级的进程占用CPU百分比<br>98.7% id 空闲CPU百分比<br>0.0% wa 等待输入输出的CPU时间百分比<br>0.0%hi：硬件CPU中断占用百分比<br>0.0%si：软中断占用百分比<br>0.0%st：虚拟机占用百分比</p>
+<p>最后两行为内存信息。内容如下：<br>Mem:<br>191272k total    物理内存总量<br>173656k used    使用的物理内存总量<br>17616k free    空闲内存总量<br>22052k buffers    用作内核缓存的内存量<br>Swap:<br>192772k total    交换区总量<br>0k used    使用的交换区总量<br>192772k free    空闲交换区总量<br>123988k cached    缓冲的交换区总量,内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚未被覆盖，该数值即为这些内容已存在于内存中的交换区的大小,相应的内存再次被换出时可不必再对交换区写入。</p>
+<p>怎么看内存有多少空闲呢？<br>totalfree = free17616 + buffers22052 + cached123988</p>
+<p>进程信息区统计信息区域的下方显示了各个进程的详细信息。首先来认识一下各列的含义。<br>序号  列名    含义<br>a    PID     进程id<br>b    PPID    父进程id<br>c    RUSER   Real user name<br>d    UID     进程所有者的用户id<br>e    USER    进程所有者的用户名<br>f    GROUP   进程所有者的组名<br>g    TTY     启动进程的终端名。不是从终端启动的进程则显示为 ?<br>h    PR      优先级<br>i    NI      nice值。负值表示高优先级，正值表示低优先级<br>j    P       最后使用的CPU，仅在多CPU环境下有意义<br>k    %CPU    上次更新到现在的CPU时间占用百分比<br>l    TIME    进程使用的CPU时间总计，单位秒<br>m    TIME+   进程使用的CPU时间总计，单位1/100秒<br>n    %MEM    进程使用的物理内存百分比<br>o    VIRT    进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES<br>p    SWAP    进程使用的虚拟内存中，被换出的大小，单位kb。<br>q    RES     进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA<br>r    CODE    可执行代码占用的物理内存大小，单位kb<br>s    DATA    可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb<br>t    SHR     共享内存大小，单位kb<br>u    nFLT    页面错误次数<br>v    nDRT    最后一次写入到现在，被修改过的页面数。<br>w    S       进程状态(D=不可中断的睡眠状态,R=运行,S=睡眠,T=跟踪/停止,Z=僵尸进程)<br>x    COMMAND 命令名/命令行<br>y    WCHAN   若该进程在睡眠，则显示睡眠中的系统函数名<br>z    Flags   任务标志，参考 sched.h</p>
+<p>默认情况下仅显示比较重要的 PID、USER、PR、NI、VIRT、RES、SHR、S、%CPU、%MEM、TIME+、COMMAND 列。可以通过下面的快捷键来更改显示内容。 </p>
+<p>更改显示内容通过 f 键可以选择显示的内容。按 f 键之后会显示列的列表，按 a-z 即可显示或隐藏对应的列，最后按回车键确定。<br>按 o 键可以改变列的显示顺序。按小写的 a-z 可以将相应的列向右移动，而大写的 A-Z 可以将相应的列向左移动。最后按回车键确定。<br>按大写的 F 或 O 键，然后按 a-z 可以将进程按照相应的列进行排序。而大写的 R 键可以将当前的排序倒转。</p>
+<p>命令使用<br>top使用格式</p>
+<p>top [-] [d] [p] [q] [c] [C] [S] [s]  [n]</p>
+<p>参数说明<br>d 指定每两次屏幕信息刷新之间的时间间隔。当然用户可以使用s交互命令来改变之。<br>p 通过指定监控进程ID来仅仅监控某个进程的状态。<br>q 该选项将使top没有任何延迟的进行刷新。如果调用程序有超级用户权限，那么top将以尽可能高的优先级运行。<br>S 指定累计模式<br>s 使top命令在安全模式中运行。这将去除交互命令所带来的潜在危险。<br>i 使top不显示任何闲置或者僵死进程。<br>c 显示整个命令行而不只是显示命令名 </p>
+<p>其他实用命令<br>下面介绍在top命令执行过程中可以使用的一些交互命令。从使用角度来看，熟练的掌握这些命令比掌握选项还重要一些。这些命令都是单字母的，如果在命令行选项中使用了s选项，则可能其中一些命令会被屏蔽掉。<br>Ctrl+L 擦除并且重写屏幕。<br>h或者? 显示帮助画面，给出一些简短的命令总结说明。<br>k       终止一个进程。系统将提示用户输入需要终止的进程PID，以及需要发送给该进程什么样的信号。一般的终止进程可以使用15信号；如果不能正常结束那就使用信号9强制结束该进程。默认值是信号15。在安全模式中此命令被屏蔽。<br>i 忽略闲置和僵死进程。这是一个开关式命令。<br>q 退出程序。<br>r 重新安排一个进程的优先级别。系统提示用户输入需要改变的进程PID以及需要设置的进程优先级值。输入一个正值将使优先级降低，反之则可以使该进程拥有更高的优先权。默认值是10。<br>S 切换到累计模式。<br>s 改变两次刷新之间的延迟时间。系统将提示用户输入新的时间，单位为s。如果有小数，就换算成m s。输入0值则系统将不断刷新，默认值是5 s。需要注意的是如果设置太小的时间，很可能会引起不断刷新，从而根本来不及看清显示的情况，而且系统负载也会大大增加。<br>f或者F 从当前显示中添加或者删除项目。<br>o或者O 改变显示项目的顺序。<br>l 切换显示平均负载和启动时间信息。<br>m 切换显示内存信息。<br>t 切换显示进程和CPU状态信息。<br>c 切换显示命令名称和完整命令行。<br>M 根据驻留内存大小进行排序。<br>P 根据CPU使用百分比大小进行排序。<br>T 根据时间/累计时间进行排序。<br>W 将当前设置写入~/.toprc文件中。这是写top配置文件的推荐方法。</p>
+<p>附常用操作:</p>
+<p>top   //每隔5秒显式所有进程的资源占用情况<br>top -d 2  //每隔2秒显式所有进程的资源占用情况<br>top -c  //每隔5秒显式进程的资源占用情况，并显示进程的命令行参数(默认只有进程名)<br>top -p 12345 -p 6789//每隔5秒显示pid是12345和pid是6789的两个进程的资源占用情况<br>top -d 2 -c -p 123456 //每隔2秒显示pid是12345的进程的资源使用情况，并显式该进程启动的命令行参数</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/09/20/LINUX%E5%AE%89%E8%A3%85nginx%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/">
+        <span class="nav-arrow">← </span>
+        
+          LINUX安装nginx详细步骤
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/09/23/Nginx-Linux%E9%80%9A%E8%BF%87%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8B%E5%B9%B6%E5%8F%91%E9%87%8F/">
+        
+          Nginx -Linux通过命令查看并发量
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/09/23/linux-linux-top-命令各参数详解/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "linux-linux top 命令各参数详解",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

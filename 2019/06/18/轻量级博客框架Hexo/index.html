@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      轻量级博客框架Hexo | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>轻量级博客框架Hexo</h2>
+  <p class="post-date">2019-06-18</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>对于习惯使用wordpress和emblog博客的人来说，由于配置稍微复杂且页面渲染速度较慢。</p>
+<p>博客搭建可行性方案：</p>
+<p>就我目前所了解到的，较多人采用的博客搭建方案有如下几种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、Git+Github+Markdown+jekyll （免费）</span><br><span class="line">2、Git+Github+Markdown+hexo （免费）</span><br><span class="line">3、虚拟主机＋插件＋Wordpress （付费）</span><br></pre></td></tr></table></figure>
+<p>个人有个不成熟的小建议：</p>
+<p>如果你不想付费，也不想备案，那你基本上就已经确定了前面两种方案了，免费版走起。<br>如果你是高富帅，或者要求较高又不想浪费多余精力在搭建博客上面，那强力推荐采用第三个方案。轻松加愉快，爽的飞起。<br>github pages + hexo: Node.js静态框架，免费，轻量，搜索引擎检索问题需要自己解决一下不然百度爬不到</p>
+<p>wordpress： PHP动态框架，要买vps，比GP重一点，但也属于傻瓜式，可以用数据库，除了当个人博客，搭个小网站也能满足要求。最近wordpress又出了一键搭博客，不用买vps，有免费有收费，免费有广告，几分钟弄了一个，超级慢，放弃！</p>
+<p>今天就给大家介绍一款新的博客框架Hexo。</p>
+<p>偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说Node.js有多么多么好，要把PHP给替代掉什么的，虽然Node.js的作用只是用来生成静态页面的，但可以感觉到，生成速度的确快；第二，支持Makedown，早就想学习Makedown了，正好边写博客，边学Makedown；第三，支持部署到Github上，以前WordPress都是部署到阿里云的云服务器ECS上的，还单独买了一个云数据库RDS，一个月得一百多块的花销，现在可以免费地放在Github上，省了一百多块钱，何乐而不为呢，哈哈。。不罗嗦了，直接上步骤。。</p>
+<p>官方网站：Hexo <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
+<p>用Hexo + github搭建自己的博客<br>用Hexo在本地搭建一个博客<br>安装Hexo<br>安装nodejs</p>
+<p><a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a> 丢个链接自己装，傻瓜式安装</p>
+<p>安装git</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> 安装毫无技术含量</p>
+<p>使用npm安装Hexo</p>
+<p>   npm install -g hexo-cli<br>  //一键搞定<br>快速开始<br>1 随便找个文件夹下打开终端,输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo i blog &#x2F;&#x2F;init的缩写 blog是项目名</span><br><span class="line">cd blog &#x2F;&#x2F;切换到站点根目录</span><br><span class="line">hexo g &#x2F;&#x2F;generetor的缩写</span><br><span class="line">hexo s &#x2F;&#x2F;server的缩写</span><br></pre></td></tr></table></figure>
+<p>2 打开浏览器输入localhost:4000查看：</p>
+<p>看到这个样子就说明成功了，这个就是hexo默认的博客主题。现在你已经可以在这个主题下写博客了。</p>
+<p>当然，我是不喜欢这样的，幸好，github上有大量的主题可供选择，这里我选择使用nexT主题。</p>
+<p>选择主题–nexT<br>1 . 在站点根目录输入</p>
+<p>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>1<br>2 . 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next</p>
+<p>配置文件就是根目录下的_config.yml文件</p>
+<p>把landscape改为next</p>
+<p>3 . 在终端输入</p>
+<p>hexo clean  //清除缓存<br>hexo g  //重新生成代码<br>hexo s  //部署到本地</p>
+<p>//然后打开浏览器访问 localhost:4000 查看效果</p>
+<p>nexT主题有三种选择，这个只是最简洁的一种，我们选择最好看的那个。</p>
+<p>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>Pisces - 双栏 Scheme，小家碧玉似的清新<br>4 . 配置nexT</p>
+<p>在 站点根目录/themes/next/_congig.yml 文件中修改</p>
+<p>然后重新clean，generator，查看效果:</p>
+<p>当然，你完全可以进行很多的自定义设置甚至修改源码，定制自己的主题。更多的设置请移步官方文档</p>
+<p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
+<p>将本地博客上传到github<br>话不多做，直接开始。</p>
+<p>1 . 注册github账号</p>
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> 甩个链接自己看着办</p>
+<p>2 . 创建一个新项目</p>
+<p>3 . 按格式输入项目名称</p>
+<p>注意规范！！</p>
+<p>4 . 点击设置 创建一个page</p>
+<p>5 . 选择一个主题，没什么用，反正马上就被覆盖掉了。。</p>
+<p>这个时候访问一下你的链接，应该可以看到效果：</p>
+<p>接下来将我们Hexo的代码部署到github上。</p>
+<p>6 . 修改hexo站点的配置文件</p>
+<p>改成这样就好了，记得保存。</p>
+<p>注意！！！冒号的后面一定一定一定要有一个空格！！</p>
+<p>7 . 部署一下就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>//先装个插件压压惊</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d  &#x2F;&#x2F;  部署的命令</span><br></pre></td></tr></table></figure>
+
+<p>//等一会就好了<br>当然，你可能会很奇怪，我没输密码，没输用户名，就这么部署上去了，这不是很不安全？<br>事实上，一般来说是要输入用户名和密码的（别人的教程都是这么说的），如果不想每次都输，就需要配置ssh啥的。不过我并不需要这一步，大概，是我下载了github客户端吧。<br>所以，如果你不想每次都输密码，也懒得搞复杂的ssh，就在你的电脑下一个github客户端吧，而且我觉得，这个东西是必备的。。。</p>
+<p>再次访问你的网站：</p>
+<p>perfect！</p>
+<p>发布你的第一篇博客<br>根目录下输入 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot;</span><br></pre></td></tr></table></figure>
+<p> //hexo n 也可以<br> //你自己的博客名称，名为postName.md的文件会建在目<br> //录/blog/source/_posts下。<br>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g &#x2F;&#x2F;生成静态页面</span><br><span class="line">hexo d &#x2F;&#x2F;发布</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/06/18/%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8%EF%BC%9A%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/">
+        <span class="nav-arrow">← </span>
+        
+          查看某个端口号是否被占用：三种方法
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/20/%E8%AE%A9-Hexo-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A8%B3%E5%AE%9A%E8%BF%90%E8%A1%8C/">
+        
+          hexo s &amp; 老是挂掉，让 Hexo 在服务器稳定运行
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/06/18/轻量级博客框架Hexo/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "轻量级博客框架Hexo",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

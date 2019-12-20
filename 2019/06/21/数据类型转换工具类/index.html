@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      数据类型转换工具类 | Hexo
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Hexo</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>数据类型转换工具类</h2>
+  <p class="post-date">2019-06-21</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>JAVA代码：</p>
+<p>有时候数据为空老是需要做判断，避免出现异常， 所以一个工具类是必然要有的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">package com.hz.common.xml;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * </span><br><span class="line"> * @ClassName:  ConverterUtils   </span><br><span class="line"> * @Description:TODO(数据类型转换工具类)   </span><br><span class="line"> * @author: 蒋正辉</span><br><span class="line"> * @date:   2019年6月21日 下午3:28:44   </span><br><span class="line"> *  	   </span><br><span class="line"> * @Copyright: 2019 jiangzhenghui Inc. All rights reserved.</span><br><span class="line"> *&#x2F;</span><br><span class="line">public class ConverterUtils &#123;</span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将obj转换为string，如果obj为null则返回defaultVal&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为string的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return obj转换为string</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static String toString(Object obj, String defaultVal) &#123;</span><br><span class="line">		return (obj !&#x3D; null) ? obj.toString() : defaultVal;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将obj转换为string，默认为空&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为string的对象</span><br><span class="line">	 * @return 将对象转换为string的字符串</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static String toString(Object obj) &#123;</span><br><span class="line">		return toString(obj, &quot;&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将对象转换为int&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为int的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return obj转换成的int值</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Integer toInt(Object obj, Integer defaultVal) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			return (obj !&#x3D; null) ? Integer.parseInt(toString(obj, &quot;0&quot;)) : defaultVal;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">		&#125;</span><br><span class="line">		return defaultVal;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将对象转换为int&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为int的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return obj转换成的int值</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Integer toInt(Object obj) &#123;</span><br><span class="line">		return toInt(obj, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将对象转换为Integer&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为Integer的对象</span><br><span class="line">	 * @return obj转换成的Integer值</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Integer toInteger(Object obj) &#123;</span><br><span class="line">		return toInt(obj, null);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将对象转换为int&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为int的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return obj转换成的int值</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Float toFloat(Object obj, float defaultVal) &#123;</span><br><span class="line">		return (obj !&#x3D; null) ? Float.parseFloat(toString(obj, &quot;0&quot;)) : defaultVal;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将对象转换为Float&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换为Float的对象</span><br><span class="line">	 * @return obj转换成的Float值</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Float toFloat(Object obj) &#123;</span><br><span class="line">		return toFloat(obj, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将obj转换为long&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return 如果obj为空则返回默认，不为空则返回转换后的long结果</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Long toLong(Object obj, long defaultVal) &#123;</span><br><span class="line">		return (obj !&#x3D; null) ? Long.parseLong(toString(obj)) : defaultVal;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将obj转换为long&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param obj 需要转换的对象</span><br><span class="line">	 * @return 如果obj为空则返回默认的0l，不为空则返回转换后的long结果</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Long toLong(Object obj) &#123;</span><br><span class="line">		return toLong(obj, 0l);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;** </span><br><span class="line">	 * 将object转换为double类型，如果出错则返回 defaultVal</span><br><span class="line">	 * @param obj 需要转换的对象</span><br><span class="line">	 * @param defaultVal 默认值</span><br><span class="line">	 * @return 转换后的结果</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static Double toDouble(Object obj, Double defaultVal) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			return Double.parseDouble(obj.toString());</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">			return defaultVal;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;** </span><br><span class="line">	 * 将object转换为double类型，如果出错则返回 0d</span><br><span class="line">	 * @param obj 需要转换的对象</span><br><span class="line">	 * @return 转换后的结果</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public static double toDouble(Object obj) &#123;</span><br><span class="line">		return toDouble(obj, 0d);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * &lt;将List&lt;Object&gt;转换为List&lt;Map&lt;String, Object&gt;&gt;&gt;</span><br><span class="line">	 * </span><br><span class="line">	 * @param list 需要转换的list</span><br><span class="line">	 * @return 转换的结果</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static List&lt;Map&lt;String, Object&gt;&gt; converterForMapList(List&lt;Object&gt; list) &#123;</span><br><span class="line">		List&lt;Map&lt;String, Object&gt;&gt; result &#x3D; new ArrayList&lt;Map&lt;String, Object&gt;&gt;();</span><br><span class="line">		for (Object tempObj : list) &#123;</span><br><span class="line">			result.add((HashMap&lt;String, Object&gt;) tempObj);</span><br><span class="line">		&#125;</span><br><span class="line">		return result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/06/20/Java%E4%B8%ADDouble%E4%BF%9D%E7%95%99%E5%90%8E%E5%B0%8F%E6%95%B0%E4%BD%8D/">
+        <span class="nav-arrow">← </span>
+        
+          Java中Double保留后小数位
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/25/hexo%E4%B9%8B%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
+        
+          GIT SSH配置
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/06/21/数据类型转换工具类/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "数据类型转换工具类",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
